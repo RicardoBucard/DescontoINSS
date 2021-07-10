@@ -1,0 +1,77 @@
+<%= form_with(model: proponente, local: true) do |form| %>
+  <% if proponente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(proponente.errors.count, "error") %> prohibited this proponente from being saved:</h2>
+
+      <ul>
+      <% proponente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cpf %>
+    <%= form.text_field :cpf %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data_nascimento %>
+    <%= form.date_select :data_nascimento %>
+  </div>
+
+  <div class="field">
+    <%= form.label :logradouro %>
+    <%= form.text_field :logradouro %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numero %>
+    <%= form.number_field :numero %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bairro %>
+    <%= form.text_field :bairro %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cidade %>
+    <%= form.text_field :cidade %>
+  </div>
+
+  <div class="field">
+    <%= form.label :estado %>
+    <%= form.text_field :estado %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cep %>
+    <%= form.text_field :cep %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefone_pessoal %>
+    <%= form.text_field :telefone_pessoal %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefone_referencia %>
+    <%= form.text_field :telefone_referencia %>
+  </div>
+
+  <div class="field">
+    <%= form.label :salario %>
+    <%= form.number_field :salario %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

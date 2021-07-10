@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @proponente.nome %>
+</p>
+
+<p>
+  <strong>Cpf:</strong>
+  <%= @proponente.cpf %>
+</p>
+
+<p>
+  <strong>Data nascimento:</strong>
+  <%= @proponente.data_nascimento %>
+</p>
+
+<p>
+  <strong>Logradouro:</strong>
+  <%= @proponente.logradouro %>
+</p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @proponente.numero %>
+</p>
+
+<p>
+  <strong>Bairro:</strong>
+  <%= @proponente.bairro %>
+</p>
+
+<p>
+  <strong>Cidade:</strong>
+  <%= @proponente.cidade %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @proponente.estado %>
+</p>
+
+<p>
+  <strong>Cep:</strong>
+  <%= @proponente.cep %>
+</p>
+
+<p>
+  <strong>Telefone pessoal:</strong>
+  <%= @proponente.telefone_pessoal %>
+</p>
+
+<p>
+  <strong>Telefone referencia:</strong>
+  <%= @proponente.telefone_referencia %>
+</p>
+
+<p>
+  <strong>Salario:</strong>
+  <%= @proponente.salario %>
+</p>
+
+<%= link_to 'Edit', edit_proponente_path(@proponente) %> |
+<%= link_to 'Back', proponentes_path %>
