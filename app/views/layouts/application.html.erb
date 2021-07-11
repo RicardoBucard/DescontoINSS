@@ -25,7 +25,6 @@
     <%= render "shared/header" %>
     <%= javascript_include_tag 'application' %>
     <% if notice.present? %>
-      <% noticeTimeOut() %>
       <div class="alert alert-success"><%= notice %> </div>
     <% end %>
     <div class="container">
