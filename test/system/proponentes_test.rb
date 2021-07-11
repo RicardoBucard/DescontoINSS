@@ -12,7 +12,7 @@ class ProponentesTest < ApplicationSystemTestCase
 
   test "creating a Proponente" do
     visit proponentes_url
-    click_on "New Proponente"
+    first("button").click
 
     fill_in "Bairro", with: @proponente.bairro
     fill_in "Cep", with: @proponente.cep
@@ -24,17 +24,18 @@ class ProponentesTest < ApplicationSystemTestCase
     fill_in "Nome", with: @proponente.nome
     fill_in "Numero", with: @proponente.numero
     fill_in "Salario", with: @proponente.salario
+    fill_in "Desconto inss", with: @proponente.desconto_inss
     fill_in "Telefone pessoal", with: @proponente.telefone_pessoal
     fill_in "Telefone referencia", with: @proponente.telefone_referencia
     click_on "Create Proponente"
 
-    assert_text "Proponente was successfully created"
+    assert_text "Proponente foi criado com sucesso"
     click_on "Back"
   end
 
   test "updating a Proponente" do
     visit proponentes_url
-    click_on "Edit", match: :first
+    click_on "Editar", match: :first
 
     fill_in "Bairro", with: @proponente.bairro
     fill_in "Cep", with: @proponente.cep
@@ -46,20 +47,21 @@ class ProponentesTest < ApplicationSystemTestCase
     fill_in "Nome", with: @proponente.nome
     fill_in "Numero", with: @proponente.numero
     fill_in "Salario", with: @proponente.salario
+    fill_in "Desconto inss", with: @proponente.desconto_inss
     fill_in "Telefone pessoal", with: @proponente.telefone_pessoal
     fill_in "Telefone referencia", with: @proponente.telefone_referencia
     click_on "Update Proponente"
 
-    assert_text "Proponente was successfully updated"
+    assert_text "Proponente foi atualizado com sucesso"
     click_on "Back"
   end
 
   test "destroying a Proponente" do
     visit proponentes_url
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_on "Deletar", match: :first
     end
 
-    assert_text "Proponente was successfully destroyed"
+    assert_text "Proponente deletado com sucesso"
   end
 end

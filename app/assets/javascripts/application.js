@@ -17,3 +17,42 @@
 //= require jquery 
 //= require jquery_ujs 
 //= require bootstrap-sprockets 
+function formatLabels(){
+    let labels = document.getElementsByTagName('label');
+    for (let labelToChange of labels) {
+        if(labelToChange.innerHTML.includes("Cpf")){
+            let newString = labelToChange.innerHTML.replace('Cpf', 'CPF')
+            labelToChange.innerHTML = newString
+        }
+        if(labelToChange.innerHTML.includes("Numero")){
+            let newString = labelToChange.innerHTML.replace('Numero', 'Número')
+            labelToChange.innerHTML = newString
+        }
+        if(labelToChange.innerHTML.includes("Cep")){
+            let newString = labelToChange.innerHTML.replace('Cep', 'CEP')
+            labelToChange.innerHTML = newString
+        }
+        if(labelToChange.innerHTML.includes("referencia")){
+            let newString = labelToChange.innerHTML.replace('referencia', 'de referência')
+            labelToChange.innerHTML = newString
+        }
+        if(labelToChange.innerHTML.includes("Salario")){
+            let newString = labelToChange.innerHTML.replace('Salario', 'Salário')
+            labelToChange.innerHTML = newString
+        }
+        if(labelToChange.innerHTML.includes("inss")){
+            let newString = labelToChange.innerHTML.replace('inss', 'INSS')
+            labelToChange.innerHTML = newString
+        }
+    }
+}
+function formatErrorMessage(){
+
+    let errorMessage = document.getElementsByTagName('p');
+    for (let message of errorMessage) {
+        if(message.innerHTML.includes("can't be blank")){
+            let newString = message.innerHTML.replace(/can't be blank/, 'não pode ficar em branco')
+            message.innerHTML = newString
+        }
+    }
+}

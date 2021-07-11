@@ -14,94 +14,95 @@
       </ul>
     </div>
   <% end %>
-  <div class="form-row align-items-center">
-    <div class="field col-sm-5">
-      <%= form.label :nome %>
-      <%= form.text_field :nome, class: "form-control" %>
+  <div class="container" id="form-container">
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-6">
+        <%= form.label :nome %>
+        <%= form.text_field :nome, class: "form-control" %>
+      </div>
+
+      <div class="col col-lg-6">
+        <%= form.label :cpf %>
+        <%= form.text_field :cpf, class: "form-control"  %>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-6">
+        <%= form.label :data_nascimento %>
+        <br>
+        <%= form.date_select :data_nascimento, class: "form-control"  %>
+      </div>
+
+
+      <div class="col col-lg-6">
+        <%= form.label :logradouro %>
+        <%= form.text_field :logradouro, class: "form-control"  %>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-6">
+        <%= form.label :bairro %>
+        <%= form.text_field :bairro, class: "form-control"  %>
+      </div>
+
+      <div class="col col-lg-6">
+        <%= form.label :numero %>
+        <%= form.number_field :numero, class: "form-control", min: 0  %>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-6">
+        <%= form.label :cidade %>
+        <%= form.text_field :cidade, class: "form-control"  %>
+      </div>
+
+      <div class="col col-lg-6">
+        <%= form.label :estado %>
+        <%= form.text_field :estado, class: "form-control"  %>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-6">
+        <%= form.label :cep %>
+        <%= form.text_field :cep, class: "form-control"  %>
+      </div>
+
+      <div class="col col-lg-6">
+        <%= form.label :telefone_pessoal %>
+        <%= form.text_field :telefone_pessoal, class: "form-control"  %>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col col-lg-6">
+        <%= form.label :telefone_referencia %>
+        <%= form.text_field :telefone_referencia, class: "form-control"  %>
+      </div>
+
+      <div class="col col-lg-6">
+        <%= form.label :salario %>
+        <%= form.number_field :salario, class: "form-control", min: 0, onchange:"computeDesconto()"%>
+      </div>
+      
     </div>
 
-    <div class="field col-sm-3">
-      <%= form.label :cpf %>
-      <%= form.text_field :cpf, class: "form-control"  %>
+    <div class="actions align-items-center col col-lg-12">
+        <%= form.label :desconto_inss %>
+        <%= form.number_field :desconto_inss, class: "form-control", hidden: true ,disabled: true%>
+      <%= form.submit class:"btn btn-outline-primary" %>
     </div>
-
-    <div class="field col-sm-4">
-      <%= form.label :data_nascimento %>
-      <br>
-      <%= form.date_select :data_nascimento, class: "form-control"  %>
-    </div>
-
-    <div class="field col-sm-5">
-      <%= form.label :logradouro %>
-      <%= form.text_field :logradouro, class: "form-control"  %>
-    </div>
-
-    <div class="field col-sm-2">
-      <%= form.label :numero %>
-      <%= form.number_field :numero, class: "form-control", min: 0  %>
-    </div>
-
-    <div class="field col-sm-3">
-      <%= form.label :bairro %>
-      <%= form.text_field :bairro, class: "form-control"  %>
-    </div>
-
-    <div class="field col-sm-3">
-      <%= form.label :cidade %>
-      <%= form.text_field :cidade, class: "form-control"  %>
-    </div>
-
-    <div class="field col-sm-3">
-      <%= form.label :estado %>
-      <%= form.text_field :estado, class: "form-control"  %>
-    </div>
-
-    <div class="field col-sm-3">
-      <%= form.label :cep %>
-      <%= form.text_field :cep, class: "form-control"  %>
-    </div>
-
-    <div class="field col-sm-3">
-      <%= form.label :telefone_pessoal %>
-      <%= form.text_field :telefone_pessoal, class: "form-control"  %>
-    </div>
-
-    <div class="field col-sm-3">
-      <%= form.label :telefone_referencia %>
-      <%= form.text_field :telefone_referencia, class: "form-control"  %>
-    </div>
-
-    <div class="field col-sm-3">
-      <%= form.label :salario %>
-      <%= form.number_field :salario, class: "form-control", min: 0, onchange:"calculaDesconto()"%>
-    </div>
-    
-    <div class="field col-sm-3">
-      <%= form.label :desconto_inss %>
-      <%= form.number_field :desconto_inss, class: "form-control", disabled: true%>
-    </div>
-
   </div>
-<div class="actions align-items-center col-sm-7">
-    <%= form.submit class:"btn btn-outline-primary" %>
-</div>
 <% end %>
 
 <script>
+  formatLabels();
+  formatErrorMessage();
   Number.prototype.round = function(places) {
     return +(Math.round(this + "e+" + places)  + "e-" + places);
   }
-  let errorMessage = document.getElementsByTagName('p');
-  for (let message of errorMessage) {
-    if(message.innerHTML.includes("can't be blank")){
-      let newString = message.innerHTML.replace(/can't be blank/, 'não pode ficar em branco')
-      message.innerHTML = newString
-    }
-  }
   $(document).ready(function(){
-    $("#proponente_salario").on('change', function calculaDesconto(){
+    $("#proponente_salario").on('change', function computeDesconto(){
       let salario = $(this).val();
-      salario = parseFloat(salario)
+      salario = parseFloat(salario);
       if(salario <= 1045.0){
         desconto = salario * 0.075
       } else if(salario > 1045.0 && salario <= 2089.6){

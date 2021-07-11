@@ -96,6 +96,16 @@ label{
     margin-top: 10px;
 }
 .actions{
+    display: block;
     margin-top: 10px;
-    margin-left: 220px;
+}
+#proponente_desconto_inss{
+    margin-bottom: 15px;
+}
+#form-container{
+    width: 600px;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-around;
 }

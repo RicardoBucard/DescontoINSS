@@ -1,5 +1,7 @@
 {
   "name": "desconto-inss",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "chromedriver": "^91.0.1"
+  }
 }
