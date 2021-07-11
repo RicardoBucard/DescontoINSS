@@ -2,13 +2,14 @@
   <% if proponente.errors.any? %>
     <div class="message is-danger">
       <div class="message-header">
-        <p class="text-danger"><%= pluralize(proponente.errors.count, "error") %> prohibited this proponente from being saved:</p>
+        <p class="text-danger"><%= pluralize(proponente.errors.count, "erro") %> impediram este proponente de ser criado:</p>
       </div>
     </div>
     <div class="message-body">
       <ul>
       <% proponente.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <% message.gsub('can\'t be blank'){'não pode ficar em branco'} %>
+        <p><%= message %></p>
       <% end %>
       </ul>
     </div>
@@ -37,7 +38,7 @@
 
     <div class="field col-sm-2">
       <%= form.label :numero %>
-      <%= form.number_field :numero, class: "form-control"  %>
+      <%= form.number_field :numero, class: "form-control", min: 0  %>
     </div>
 
     <div class="field col-sm-3">
@@ -72,12 +73,12 @@
 
     <div class="field col-sm-3">
       <%= form.label :salario %>
-      <%= form.number_field :salario, class: "form-control" %>
+      <%= form.number_field :salario, class: "form-control", min: 0, onchange:"calculaDesconto()"%>
     </div>
     
     <div class="field col-sm-3">
       <%= form.label :desconto_inss %>
-      <%= form.number_field :desconto_inss, class: "form-control"%>
+      <%= form.number_field :desconto_inss, class: "form-control", disabled: true%>
     </div>
 
   </div>
@@ -85,3 +86,49 @@
     <%= form.submit class:"btn btn-outline-primary" %>
 </div>
 <% end %>
+
+<script>
+  Number.prototype.round = function(places) {
+    return +(Math.round(this + "e+" + places)  + "e-" + places);
+  }
+  let errorMessage = document.getElementsByTagName('p');
+  for (let message of errorMessage) {
+    if(message.innerHTML.includes("can't be blank")){
+      let newString = message.innerHTML.replace(/can't be blank/, 'não pode ficar em branco')
+      message.innerHTML = newString
+    }
+  }
+  $(document).ready(function(){
+    $("#proponente_salario").on('change', function calculaDesconto(){
+      let salario = $(this).val();
+      salario = parseFloat(salario)
+      if(salario <= 1045.0){
+        desconto = salario * 0.075
+      } else if(salario > 1045.0 && salario <= 2089.6){
+        primeiraFaixa = 1045.0 * 0.075
+        segundaFaixa = (salario - 1045.0) * 0.09
+        desconto = primeiraFaixa + segundaFaixa
+      } else if (salario > 2089.6 && salario <= 3134.4){
+        primeiraFaixa = 1045.0 * 0.075
+        segundaFaixa = (2089.6 - 1045.0) * 0.09
+        terceiraFaixa = (salario - 2089.6) * 0.12
+        desconto = primeiraFaixa + segundaFaixa + terceiraFaixa
+      } else if (salario > 3134.4 && salario <= 6101.06){
+        primeiraFaixa = 1045.0 * 0.075
+        segundaFaixa = (2089.6 - 1045.0) * 0.09
+        terceiraFaixa = (3134.4 - 2089.6) * 0.12
+        quartaFaixa = (salario - 3134.4) * 0.14
+        desconto = primeiraFaixa + segundaFaixa + terceiraFaixa + quartaFaixa
+      } else {
+        primeiraFaixa = 1045.0 * 0.075
+        segundaFaixa = (2089.6 - 1045.0) * 0.09
+        terceiraFaixa = (3134.4 - 2089.6) * 0.12
+        quartaFaixa = (6101.06 - 3134.4) * 0.14
+        desconto = primeiraFaixa + segundaFaixa + terceiraFaixa + quartaFaixa
+      }
+    desconto = desconto.round(2);
+    console.log("O desconto é de ", desconto);
+    });
+    
+  });
+</script>
