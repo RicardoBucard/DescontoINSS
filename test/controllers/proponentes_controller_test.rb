@@ -17,7 +17,7 @@ class ProponentesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create proponente" do
     assert_difference('Proponente.count') do
-      post proponentes_url, params: { proponente: { bairro: @proponente.bairro, cep: @proponente.cep, cidade: @proponente.cidade, cpf: @proponente.cpf, data_nascimento: @proponente.data_nascimento, estado: @proponente.estado, logradouro: @proponente.logradouro, nome: @proponente.nome, numero: @proponente.numero, salario: @proponente.salario, telefone_pessoal: @proponente.telefone_pessoal, telefone_referencia: @proponente.telefone_referencia } }
+      post proponentes_url, params: { proponente: { bairro: @proponente.bairro, cep: @proponente.cep, cidade: @proponente.cidade, cpf: @proponente.cpf, data_nascimento: @proponente.data_nascimento, desconto_inss: @proponente.desconto_inss, estado: @proponente.estado, logradouro: @proponente.logradouro, nome: @proponente.nome, numero: @proponente.numero, salario: @proponente.salario, telefone_pessoal: @proponente.telefone_pessoal, telefone_referencia: @proponente.telefone_referencia } }
     end
 
     assert_redirected_to proponente_url(Proponente.last)
@@ -34,7 +34,7 @@ class ProponentesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update proponente" do
-    patch proponente_url(@proponente), params: { proponente: { bairro: @proponente.bairro, cep: @proponente.cep, cidade: @proponente.cidade, cpf: @proponente.cpf, data_nascimento: @proponente.data_nascimento, estado: @proponente.estado, logradouro: @proponente.logradouro, nome: @proponente.nome, numero: @proponente.numero, salario: @proponente.salario, telefone_pessoal: @proponente.telefone_pessoal, telefone_referencia: @proponente.telefone_referencia } }
+    patch proponente_url(@proponente), params: { proponente: { bairro: @proponente.bairro, cep: @proponente.cep, cidade: @proponente.cidade, cpf: @proponente.cpf, data_nascimento: @proponente.data_nascimento, desconto_inss: @proponente.desconto_inss, estado: @proponente.estado, logradouro: @proponente.logradouro, nome: @proponente.nome, numero: @proponente.numero, salario: @proponente.salario, telefone_pessoal: @proponente.telefone_pessoal, telefone_referencia: @proponente.telefone_referencia } }
     assert_redirected_to proponente_url(@proponente)
   end
 
