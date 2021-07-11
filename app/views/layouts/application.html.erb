@@ -1,7 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DescontoInss</title>
+    <title>Desconto Inss</title>
+    <script>
+      function noticeClear(){
+        var notice = document.getElementById("notice");
+        notice.remove();
+      }
+
+      function noticeTimeOut(){
+        if (notice !== undefined){
+            setTimeout(noticeClear, 3000);
+        }
+      }
+    </script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +22,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "shared/header" %>
+    <%= javascript_include_tag 'application' %>
+    <% if notice.present? %>
+      <% noticeTimeOut() %>
+      <div class="alert alert-success"><%= notice %> </div>
+    <% end %>
+    <div class="container">
+      <%= yield %>
+    <div>
   </body>
 </html>

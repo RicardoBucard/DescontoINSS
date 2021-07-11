@@ -1,49 +1,105 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Proponentes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Cpf</th>
-      <th>Data nascimento</th>
-      <th>Logradouro</th>
-      <th>Numero</th>
-      <th>Bairro</th>
-      <th>Cidade</th>
-      <th>Estado</th>
-      <th>Cep</th>
-      <th>Telefone pessoal</th>
-      <th>Telefone referencia</th>
-      <th>Salario</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @proponentes.each do |proponente| %>
-      <tr>
-        <td><%= proponente.nome %></td>
-        <td><%= proponente.cpf %></td>
-        <td><%= proponente.data_nascimento %></td>
-        <td><%= proponente.logradouro %></td>
-        <td><%= proponente.numero %></td>
-        <td><%= proponente.bairro %></td>
-        <td><%= proponente.cidade %></td>
-        <td><%= proponente.estado %></td>
-        <td><%= proponente.cep %></td>
-        <td><%= proponente.telefone_pessoal %></td>
-        <td><%= proponente.telefone_referencia %></td>
-        <td><%= proponente.salario %></td>
-        <td><%= link_to 'Show', proponente %></td>
-        <td><%= link_to 'Edit', edit_proponente_path(proponente) %></td>
-        <td><%= link_to 'Destroy', proponente, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Proponente', new_proponente_path %>
+<div class="container">
+  <h1 class="text-center mr-4">Proponentes</h1>
+    <div class="container">
+      <div class="card-columns">
+        <% @proponentes.each do |proponente| %>
+          <div class="card-container">
+            <div class="card text-white text-center p-3">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <p class="card-text"><strong>Nome: </strong><%= proponente.nome %></p>
+                </h5>
+              </div>
+            </div>
+            <div class="card text-white text-center p-3">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <p class="card-text"><strong>CPF: </strong><%= proponente.cpf %></p>
+                </h5>
+              </div>
+            </div>
+            <div class="card text-white text-center p-3">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <p class="card-text"><strong>Data de Nascimento: </strong><%= proponente.data_nascimento %></p>
+                </h5>
+              </div>
+            </div>
+            <div class="card text-white text-center p-3">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <p class="card-text"><strong>Logradouro: </strong><%= proponente.logradouro %></p>
+                </h5>
+              </div>
+            </div>
+            <div class="card text-white text-center p-3">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <p class="card-text"><strong>Número: </strong><%= proponente.numero %></p>
+                </h5>
+              </div>
+            </div>
+            <div class="card text-white text-center p-3">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <p class="card-text"><strong>Bairro: </strong><%= proponente.bairro %></p>
+                </h5>
+              </div>
+            </div>
+            <div class="card text-white text-center p-3">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <p class="card-text"><strong>Cidade: </strong><%= proponente.cidade %></p>
+                </h5>
+              </div>
+            </div>
+            <div class="card text-white text-center p-3">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <p class="card-text"><strong>Estado: </strong><%= proponente.estado %></p>
+                </h5>
+              </div>
+            </div>
+            <div class="card text-white text-center p-3">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <p class="card-text"><strong>CEP: </strong><%= proponente.cep %></p>
+                </h5>
+              </div>
+            </div>
+            <div class="card text-white text-center p-3">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <p class="card-text"><strong>Telefone Pessoal: </strong><%= proponente.telefone_pessoal %></p>
+                </h5>
+              </div>
+            </div>
+            <div class="card text-white text-center p-3">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <p class="card-text"><strong>Telefone de Referência: </strong><%= proponente.telefone_referencia %></p>
+                </h5>
+              </div>
+            </div>
+            <div class="card text-white text-center p-3">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <p class="card-text"><strong>Salário: </strong><%= proponente.salario %></p>
+                </h5>
+              </div>
+            </div>
+            <div class="card text-white text-center p-3">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <p class="card-text"><strong>Desconto do INSS: </strong><%= proponente.desconto_inss %></p>
+                </h5>
+              </div>
+            </div>
+            <div class="card-button-container">
+              <%= link_to 'Detalhes', proponente %>
+              <%= link_to 'Editar', edit_proponente_path(proponente) %>
+              <%= link_to 'Deletar', proponente, method: :delete, data: { confirm: 'Tem certeza que deseja deletar?' } %>
+            </div>
+          </div>
+        <% end %>
+</div>

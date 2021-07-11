@@ -15,3 +15,58 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+$color-gray: #f5f3f3;
+$color-white: #ffffff;
+$color-purple: #9400D3;
+$primary: $color-purple;
+nav{
+    background-color: $primary;
+    padding: 10px;
+}
+.container-header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.div-navbar{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.card-container{
+    padding: 5px;
+    border-radius: 25px;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 350px;
+
+}
+.card-button-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+#logo{
+    font-size: 1.7em;
+    color: $color-white;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+
+#logo:hover{
+    color: $color-white;
+    text-decoration: none;
+    background-color: transparent;
+}
+a{
+    color: $primary;
+}
+a:hover{
+    color: $primary;
+    text-decoration: none;
+    background-color: transparent;
+}
+a:visited{
+    color: $primary;
+}
