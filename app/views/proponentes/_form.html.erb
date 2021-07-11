@@ -1,8 +1,11 @@
 <%= form_with(model: proponente, local: true) do |form| %>
   <% if proponente.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(proponente.errors.count, "error") %> prohibited this proponente from being saved:</h2>
-
+    <div class="message is-danger">
+      <div class="message-header">
+        <p class="text-danger"><%= pluralize(proponente.errors.count, "error") %> prohibited this proponente from being saved:</p>
+      </div>
+    </div>
+    <div class="message-body">
       <ul>
       <% proponente.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,68 +13,75 @@
       </ul>
     </div>
   <% end %>
+  <div class="form-row align-items-center">
+    <div class="field col-sm-5">
+      <%= form.label :nome %>
+      <%= form.text_field :nome, class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
-  </div>
+    <div class="field col-sm-3">
+      <%= form.label :cpf %>
+      <%= form.text_field :cpf, class: "form-control"  %>
+    </div>
 
-  <div class="field">
-    <%= form.label :cpf %>
-    <%= form.text_field :cpf %>
-  </div>
+    <div class="field col-sm-4">
+      <%= form.label :data_nascimento %>
+      <br>
+      <%= form.date_select :data_nascimento, class: "form-control"  %>
+    </div>
 
-  <div class="field">
-    <%= form.label :data_nascimento %>
-    <%= form.date_select :data_nascimento %>
-  </div>
+    <div class="field col-sm-5">
+      <%= form.label :logradouro %>
+      <%= form.text_field :logradouro, class: "form-control"  %>
+    </div>
 
-  <div class="field">
-    <%= form.label :logradouro %>
-    <%= form.text_field :logradouro %>
-  </div>
+    <div class="field col-sm-2">
+      <%= form.label :numero %>
+      <%= form.number_field :numero, class: "form-control"  %>
+    </div>
 
-  <div class="field">
-    <%= form.label :numero %>
-    <%= form.number_field :numero %>
-  </div>
+    <div class="field col-sm-3">
+      <%= form.label :bairro %>
+      <%= form.text_field :bairro, class: "form-control"  %>
+    </div>
 
-  <div class="field">
-    <%= form.label :bairro %>
-    <%= form.text_field :bairro %>
-  </div>
+    <div class="field col-sm-3">
+      <%= form.label :cidade %>
+      <%= form.text_field :cidade, class: "form-control"  %>
+    </div>
 
-  <div class="field">
-    <%= form.label :cidade %>
-    <%= form.text_field :cidade %>
-  </div>
+    <div class="field col-sm-3">
+      <%= form.label :estado %>
+      <%= form.text_field :estado, class: "form-control"  %>
+    </div>
 
-  <div class="field">
-    <%= form.label :estado %>
-    <%= form.text_field :estado %>
-  </div>
+    <div class="field col-sm-3">
+      <%= form.label :cep %>
+      <%= form.text_field :cep, class: "form-control"  %>
+    </div>
 
-  <div class="field">
-    <%= form.label :cep %>
-    <%= form.text_field :cep %>
-  </div>
+    <div class="field col-sm-3">
+      <%= form.label :telefone_pessoal %>
+      <%= form.text_field :telefone_pessoal, class: "form-control"  %>
+    </div>
 
-  <div class="field">
-    <%= form.label :telefone_pessoal %>
-    <%= form.text_field :telefone_pessoal %>
-  </div>
+    <div class="field col-sm-3">
+      <%= form.label :telefone_referencia %>
+      <%= form.text_field :telefone_referencia, class: "form-control"  %>
+    </div>
 
-  <div class="field">
-    <%= form.label :telefone_referencia %>
-    <%= form.text_field :telefone_referencia %>
-  </div>
+    <div class="field col-sm-3">
+      <%= form.label :salario %>
+      <%= form.number_field :salario, class: "form-control" %>
+    </div>
+    
+    <div class="field col-sm-3">
+      <%= form.label :desconto_inss %>
+      <%= form.number_field :desconto_inss, class: "form-control"%>
+    </div>
 
-  <div class="field">
-    <%= form.label :salario %>
-    <%= form.number_field :salario %>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<div class="actions align-items-center col-sm-7">
+    <%= form.submit class:"btn btn-outline-primary" %>
+</div>
 <% end %>

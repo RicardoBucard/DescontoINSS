@@ -1,62 +1,92 @@
-<p>
-  <strong>Nome:</strong>
-  <%= @proponente.nome %>
-</p>
-
-<p>
-  <strong>Cpf:</strong>
-  <%= @proponente.cpf %>
-</p>
-
-<p>
-  <strong>Data nascimento:</strong>
-  <%= @proponente.data_nascimento %>
-</p>
-
-<p>
-  <strong>Logradouro:</strong>
-  <%= @proponente.logradouro %>
-</p>
-
-<p>
-  <strong>Numero:</strong>
-  <%= @proponente.numero %>
-</p>
-
-<p>
-  <strong>Bairro:</strong>
-  <%= @proponente.bairro %>
-</p>
-
-<p>
-  <strong>Cidade:</strong>
-  <%= @proponente.cidade %>
-</p>
-
-<p>
-  <strong>Estado:</strong>
-  <%= @proponente.estado %>
-</p>
-
-<p>
-  <strong>Cep:</strong>
-  <%= @proponente.cep %>
-</p>
-
-<p>
-  <strong>Telefone pessoal:</strong>
-  <%= @proponente.telefone_pessoal %>
-</p>
-
-<p>
-  <strong>Telefone referencia:</strong>
-  <%= @proponente.telefone_referencia %>
-</p>
-
-<p>
-  <strong>Salario:</strong>
-  <%= @proponente.salario %>
-</p>
-
-<%= link_to 'Edit', edit_proponente_path(@proponente) %> |
-<%= link_to 'Back', proponentes_path %>
+<div class="card text-white text-center p-3">
+  <h1 class="card-text"><strong><%= @proponente.nome %></strong></h1>
+</div>
+<div class="card-container">
+  <div class="card text-white text-center p-3">
+    <div class="card-body">
+      <h5 class="card-title">
+        <p class="card-text"><strong>CPF: </strong><%= @proponente.cpf %></p>
+      </h5>
+    </div>
+  </div>
+  <div class="card text-white text-center p-3">
+    <div class="card-body">
+      <h5 class="card-title">
+        <p class="card-text"><strong>Data de Nascimento: </strong><%= @proponente.data_nascimento %></p>
+      </h5>
+    </div>
+  </div>
+  <div class="card text-white text-center p-3">
+    <div class="card-body">
+      <h5 class="card-title">
+        <p class="card-text"><strong>Logradouro: </strong><%= @proponente.logradouro %></p>
+      </h5>
+    </div>
+  </div>
+  <div class="card text-white text-center p-3">
+    <div class="card-body">
+      <h5 class="card-title">
+        <p class="card-text"><strong>Número: </strong><%= @proponente.numero %></p>
+      </h5>
+    </div>
+  </div>
+  <div class="card text-white text-center p-3">
+    <div class="card-body">
+      <h5 class="card-title">
+        <p class="card-text"><strong>Bairro: </strong><%= @proponente.bairro %></p>
+      </h5>
+    </div>
+  </div>
+  <div class="card text-white text-center p-3">
+    <div class="card-body">
+      <h5 class="card-title">
+        <p class="card-text"><strong>Cidade: </strong><%= @proponente.cidade %></p>
+      </h5>
+    </div>
+  </div>
+  <div class="card text-white text-center p-3">
+    <div class="card-body">
+      <h5 class="card-title">
+        <p class="card-text"><strong>Estado: </strong><%= @proponente.estado %></p>
+      </h5>
+    </div>
+  </div>
+  <div class="card text-white text-center p-3">
+    <div class="card-body">
+      <h5 class="card-title">
+        <p class="card-text"><strong>CEP: </strong><%= @proponente.cep %></p>
+      </h5>
+    </div>
+  </div>
+  <div class="card text-white text-center p-3">
+    <div class="card-body">
+      <h5 class="card-title">
+        <p class="card-text"><strong>Telefone Pessoal: </strong><%= @proponente.telefone_pessoal %></p>
+      </h5>
+    </div>
+  </div>
+  <div class="card text-white text-center p-3">
+    <div class="card-body">
+      <h5 class="card-title">
+        <p class="card-text"><strong>Telefone de Referência: </strong><%= @proponente.telefone_referencia %></p>
+      </h5>
+    </div>
+  </div>
+  <div class="card text-white text-center p-3">
+    <div class="card-body">
+      <h5 class="card-title">
+        <p class="card-text"><strong>Salário: </strong>R$ <%= @proponente.salario %></p>
+      </h5>
+    </div>
+  </div>
+  <div class="card text-white text-center p-3">
+    <div class="card-body">
+      <h5 class="card-title">
+        <p class="card-text"><strong>Desconto do INSS: </strong><%= @proponente.desconto_inss %></p>
+      </h5>
+    </div>
+</div>
+<div class="card-button-container">
+  <%= link_to 'Editar', edit_proponente_path(@proponente) %> |
+  <%= link_to 'Voltar', proponentes_path %>
+</div>

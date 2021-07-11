@@ -36,7 +36,7 @@ nav{
     padding: 5px;
     border-radius: 25px;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-    margin-top: 10px;
+    margin-top: 15px;
     margin-left: auto;
     margin-right: auto;
     max-width: 350px;
@@ -69,4 +69,35 @@ a:hover{
 }
 a:visited{
     color: $primary;
+}
+.btn{
+    margin-bottom: 0;
+    font-weight: normal;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    border-radius: 4px;
+    color: $primary;
+    border-color: $primary;
+    margin-left: auto ;
+    margin-right: auto ;
+    margin-top: 10px;
+}
+.btn:hover{
+    color: $primary;
+    text-decoration: none;
+}
+label{
+    margin-top: 10px;
+}
+.actions{
+    margin-top: 10px;
+    margin-left: 220px;
 }
