@@ -27,9 +27,11 @@ class ProponentesController < ApplicationController
       if @proponente.save
         format.html { redirect_to @proponente, notice: "Proponente foi criado com sucesso" }
         format.json { render :show, status: :created, location: @proponente }
+        format.js { render :result  }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @proponente.errors, status: :unprocessable_entity }
+        format.js { render :new, status: :unprocessable_entity }
       end
     end
   end
@@ -40,9 +42,11 @@ class ProponentesController < ApplicationController
       if @proponente.update(proponente_params)
         format.html { redirect_to @proponente, notice: "Proponente foi atualizado com sucesso" }
         format.json { render :show, status: :ok, location: @proponente }
+        format.js {redirect_to @proponente, notice: "Proponente foi criado com sucesso" }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @proponente.errors, status: :unprocessable_entity }
+        format.js { render :new, status: :unprocessable_entity }
       end
     end
   end

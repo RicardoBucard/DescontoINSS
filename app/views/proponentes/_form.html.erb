@@ -1,13 +1,13 @@
-<%= form_with(model: proponente, local: true) do |form| %>
-  <% if proponente.errors.any? %>
+<%= form_for(@proponente, remote: true) do |form| %>
+  <% if @proponente.errors.any? %>
     <div class="message is-danger">
       <div class="message-header">
-        <p class="text-danger"><%= pluralize(proponente.errors.count, "erro") %> impediram este proponente de ser criado:</p>
+        <p class="text-danger"><%= pluralize(@proponente.errors.count, "erro") %> impediram este proponente de ser criado:</p>
       </div>
     </div>
     <div class="message-body">
       <ul>
-      <% proponente.errors.full_messages.each do |message| %>
+      <% @proponente.errors.full_messages.each do |message| %>
         <% message.gsub('can\'t be blank'){'não pode ficar em branco'} %>
         <p><%= message %></p>
       <% end %>
@@ -18,76 +18,73 @@
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :nome %>
-        <%= form.text_field :nome, class: "form-control" %>
+        <%= form.text_field :nome, class: "form-control text-center" %>
       </div>
 
       <div class="col col-lg-6">
         <%= form.label :cpf %>
-        <%= form.text_field :cpf, class: "form-control"  %>
+        <%= form.text_field :cpf, class: "form-control text-center"  %>
       </div>
     </div>
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :data_nascimento %>
         <br>
-        <%= form.date_select :data_nascimento, class: "form-control"  %>
+        <%= form.date_select :data_nascimento, :start_year => Date.current.year, :end_year => 1930, class: "form-control text-center"  %>
       </div>
 
 
       <div class="col col-lg-6">
         <%= form.label :logradouro %>
-        <%= form.text_field :logradouro, class: "form-control"  %>
+        <%= form.text_field :logradouro, class: "form-control text-center"  %>
       </div>
     </div>
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :bairro %>
-        <%= form.text_field :bairro, class: "form-control"  %>
+        <%= form.text_field :bairro, class: "form-control text-center"  %>
       </div>
 
       <div class="col col-lg-6">
         <%= form.label :numero %>
-        <%= form.number_field :numero, class: "form-control", min: 0  %>
+        <%= form.number_field :numero, class: "form-control text-center", min: 0  %>
       </div>
     </div>
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :cidade %>
-        <%= form.text_field :cidade, class: "form-control"  %>
+        <%= form.text_field :cidade, class: "form-control text-center"  %>
       </div>
 
       <div class="col col-lg-6">
         <%= form.label :estado %>
-        <%= form.text_field :estado, class: "form-control"  %>
+        <%= form.text_field :estado, class: "form-control text-center"  %>
       </div>
     </div>
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :cep %>
-        <%= form.text_field :cep, class: "form-control"  %>
+        <%= form.text_field :cep, class: "form-control text-center"  %>
       </div>
 
       <div class="col col-lg-6">
         <%= form.label :telefone_pessoal %>
-        <%= form.text_field :telefone_pessoal, class: "form-control"  %>
+        <%= form.text_field :telefone_pessoal, class: "form-control text-center"  %>
       </div>
     </div>
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :telefone_referencia %>
-        <%= form.text_field :telefone_referencia, class: "form-control"  %>
+        <%= form.text_field :telefone_referencia, class: "form-control text-center"  %>
       </div>
-
       <div class="col col-lg-6">
         <%= form.label :salario %>
-        <%= form.number_field :salario, class: "form-control", min: 0, onchange:"computeDesconto()"%>
+        <%= form.number_field :salario, min: 0, step: 0.01, class: "form-control text-center", onchange: true %>
       </div>
-      
     </div>
-
     <div class="actions align-items-center col col-lg-12">
         <%= form.label :desconto_inss %>
-        <%= form.number_field :desconto_inss, class: "form-control", hidden: true ,disabled: true%>
+        <<%= form.number_field :desconto_inss, min: 0, step: 0.01, class: "form-control text-center"%>
       <%= form.submit class:"btn btn-outline-primary" %>
     </div>
   </div>
@@ -100,7 +97,7 @@
     return +(Math.round(this + "e+" + places)  + "e-" + places);
   }
   $(document).ready(function(){
-    $("#proponente_salario").on('change', function computeDesconto(){
+    $("#proponente_salario").on('change', function() {
       let salario = $(this).val();
       salario = parseFloat(salario);
       if(salario <= 1045.0){
@@ -127,9 +124,9 @@
         quartaFaixa = (6101.06 - 3134.4) * 0.14
         desconto = primeiraFaixa + segundaFaixa + terceiraFaixa + quartaFaixa
       }
-    desconto = desconto.round(2);
-    console.log("O desconto é de ", desconto);
+      desconto = desconto.round(2);
+      $("#proponente_desconto_inss").val(desconto);
+     });
     });
-    
-  });
 </script>
+    
