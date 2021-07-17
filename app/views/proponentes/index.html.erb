@@ -1,105 +1,111 @@
+<% if @proponentes.blank? %>
+  <div class="alert alert-warning">
+    <strong>Não há proponentes salvos</strong>
+  </div>
+<% end %>
 <div class="container">
-  <h1 class="text-center mr-4"><strong>Proponentes</strong></h1>
-    <div class="container">
-      <div class="card-columns">
-        <% @proponentes.each do |proponente| %>
-          <div class="card-container">
-            <div class="card text-white text-center p-3">
-              <div class="card-body">
-                <h5 class="card-title">
-                  <strong>Nome: </strong> <span class="card-text" ><%= proponente.nome %></span>
-                </h5>
-              </div>
-            </div>
-            <div class="card text-white text-center p-3">
-              <div class="card-body">
-                <h5 class="card-title">
-                  <strong>CPF: </strong> <span class="card-text" ><%= proponente.cpf %></span>
-                </h5>
-              </div>
-            </div>
-            <div class="card text-white text-center p-3">
-              <div class="card-body">
-                <h5 class="card-title">
-                  <strong>Data de Nascimento: </strong> <span class="card-text" ><%= proponente.data_nascimento %></span>
-                </h5>
-              </div>
-            </div>
-            <div class="card text-white text-center p-3">
-              <div class="card-body">
-                <h5 class="card-title">
-                  <strong>Logradouro: </strong> <span class="card-text" ><%= proponente.logradouro %></span>
-                </h5>
-              </div>
-            </div>
-            <div class="card text-white text-center p-3">
-              <div class="card-body">
-                <h5 class="card-title">
-                  <strong>Número: </strong> <span class="card-text" ><%= proponente.numero %></span>
-                </h5>
-              </div>
-            </div>
-            <div class="card text-white text-center p-3">
-              <div class="card-body">
-                <h5 class="card-title">
-                  <strong>Bairro: </strong> <span class="card-text" ><%= proponente.bairro %></span>
-                </h5>
-              </div>
-            </div>
-            <div class="card text-white text-center p-3">
-              <div class="card-body">
-                <h5 class="card-title">
-                  <strong>Cidade: </strong> <span class="card-text" ><%= proponente.cidade %></span>
-                </h5>
-              </div>
-            </div>
-            <div class="card text-white text-center p-3">
-              <div class="card-body">
-                <h5 class="card-title">
-                  <strong>Estado: </strong> <span class="card-text" ><%= proponente.estado %></span>
-                </h5>
-              </div>
-            </div>
-            <div class="card text-white text-center p-3">
-              <div class="card-body">
-                <h5 class="card-title">
-                  <strong>CEP: </strong> <span class="card-text" ><%= proponente.cep %></span>
-                </h5>
-              </div>
-            </div>
-            <div class="card text-white text-center p-3">
-              <div class="card-body">
-                <h5 class="card-title">
-                  <strong>Telefone Pessoal: </strong> <span class="card-text" ><%= proponente.telefone_pessoal %></span>
-                </h5>
-              </div>
-            </div>
-            <div class="card text-white text-center p-3">
-              <div class="card-body">
-                <h5 class="card-title">
-                  <strong>Telefone de Referêcia: </strong> <span class="card-text" ><%= proponente.telefone_referencia %></span>
-                </h5>
-              </div>
-            </div>
-            <div class="card text-white text-center p-3">
-              <div class="card-body">
-                <h5 class="card-title">
-                  <strong>Salário: </strong> <span class="card-text" >R$ <%= proponente.salario %></span>
-                </h5>
-              </div>
-            </div>
-            <div class="card text-white text-center p-3">
-              <div class="card-body">
-                <h5 class="card-title">
-                  <strong>Desconto do INSS: </strong> <span class="card-text" >R$ <%= proponente.desconto_inss %></span>
-                </h5>
-              </div>
-            </div>
-            <div class="card-button-container">
-              <%= link_to 'Detalhes', proponente %> |
-              <%= link_to 'Editar', edit_proponente_path(proponente) %> |
-              <%= link_to 'Deletar', proponente, method: :delete, data: { confirm: 'Tem certeza que deseja deletar?' } %>
-            </div>
+  <h1 class="page-title text-center mr-4"><strong>Proponentes</strong></h1>
+    <% @proponentes.each do |proponente| %>
+      <div class="card-container">
+        <div class="card text-white text-center p-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              <strong>Nome: </strong> <span class="card-text" ><%= proponente.nome %></span>
+            </h5>
           </div>
-        <% end %>
+        </div>
+        <div class="card text-white text-center p-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              <strong>CPF: </strong> <span class="card-text" ><%= proponente.cpf %></span>
+            </h5>
+          </div>
+        </div>
+        <div class="card text-white text-center p-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              <strong>Data de Nascimento: </strong> <span class="card-text" ><%= proponente.data_nascimento %></span>
+            </h5>
+          </div>
+        </div>
+        <div class="card text-white text-center p-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              <strong>Logradouro: </strong> <span class="card-text" ><%= proponente.logradouro %></span>
+            </h5>
+          </div>
+        </div>
+        <div class="card text-white text-center p-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              <strong>Número: </strong> <span class="card-text" ><%= proponente.numero %></span>
+            </h5>
+          </div>
+        </div>
+        <div class="card text-white text-center p-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              <strong>Bairro: </strong> <span class="card-text" ><%= proponente.bairro %></span>
+            </h5>
+          </div>
+        </div>
+        <div class="card text-white text-center p-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              <strong>Cidade: </strong> <span class="card-text" ><%= proponente.cidade %></span>
+            </h5>
+          </div>
+        </div>
+        <div class="card text-white text-center p-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              <strong>Estado: </strong> <span class="card-text" ><%= proponente.estado %></span>
+            </h5>
+          </div>
+        </div>
+        <div class="card text-white text-center p-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              <strong>CEP: </strong> <span class="card-text" ><%= proponente.cep %></span>
+            </h5>
+          </div>
+        </div>
+        <div class="card text-white text-center p-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              <strong>Telefone Pessoal: </strong> <span class="card-text" ><%= proponente.telefone_pessoal %></span>
+            </h5>
+          </div>
+        </div>
+        <div class="card text-white text-center p-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              <strong>Telefone de Referêcia: </strong> <span class="card-text" ><%= proponente.telefone_referencia %></span>
+            </h5>
+          </div>
+        </div>
+        <div class="card text-white text-center p-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              <strong>Salário: </strong> <span class="card-text" >R$ <%= proponente.salario %></span>
+            </h5>
+          </div>
+        </div>
+        <div class="card text-white text-center p-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              <strong>Desconto do INSS: </strong> <span class="card-text" >R$ <%= proponente.desconto_inss %></span>
+            </h5>
+          </div>
+        </div>
+        <div class="card-button-container">
+          <%= link_to 'Detalhes', proponente %> |
+          <%= link_to 'Editar', edit_proponente_path(proponente) %> |
+          <%= link_to 'Deletar', proponente, method: :delete, data: { confirm: 'Tem certeza que deseja deletar?' } %>
+        </div>
+      </div>
+    <% end %>
+  <div class="text-center">
+    <%= paginate @proponentes %>
+  </div>
 </div>

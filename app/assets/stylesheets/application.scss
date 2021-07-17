@@ -19,9 +19,13 @@ $color-gray: #f5f3f3;
 $color-white: #ffffff;
 $color-purple: #9400D3;
 $primary: $color-purple;
-nav{
+
+body{
+    font-size: 20px;
+}
+.navbar{
     background-color: $primary;
-    padding: 10px;
+    padding: 1em;
 }
 .container-header{
     display: flex;
@@ -32,15 +36,33 @@ nav{
     margin-top: auto;
     margin-bottom: auto;
 }
+.page-title{
+    margin-bottom: .8em;
+    display: flex;
+    justify-content: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 3em;
+    font-weight: bold;
+    letter-spacing: .05em;
+    mix-blend-mode: multiply;
+    text-shadow: 5px 4px 5px rgb(0,0,0), 0 2px 2.5px rgb(0,0,0);
+}
+
 .card-container{
-    padding: 5px;
-    border-radius: 25px;
+    padding: 0.2em;
+    border-radius: 0.5em;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
-    margin-top: 15px;
+    // margin-top: 1em;
+    margin-bottom: 2em;
     margin-left: auto;
     margin-right: auto;
-    max-width: 350px;
-
+    max-width: 40vw;
+}
+.card-title{
+    font-size: .9em;
+}
+.card-text{
+    font-size: .9em;
 }
 .card-button-container{
     display: flex;
@@ -50,7 +72,7 @@ nav{
     font-size: 1.7em;
     color: $color-white;
     text-transform: uppercase;
-    letter-spacing: -1px;
+    letter-spacing: -0.1px;
     font-weight: bold;
 }
 
@@ -78,11 +100,10 @@ a:visited{
     touch-action: manipulation;
     cursor: pointer;
     background-image: none;
-    border: 1px solid transparent;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.428571429;
-    border-radius: 4px;
+    border: .1px solid transparent;
+    padding: .6em .6em;
+    font-size: 1em;
+    border-radius: .4em;
     color: $primary;
     border-color: $primary;
     margin-left: auto ;
@@ -93,17 +114,18 @@ a:visited{
     text-decoration: none;
 }
 label{
-    margin-top: 10px;
+    margin-top: 1em;
 }
 .actions{
     display: block;
-    margin-top: 10px;
+    margin-top: .5em;
 }
 #proponente_desconto_inss{
-    margin-bottom: 15px;
+    margin-bottom: 1em;
 }
 #form-container{
-    width: 600px;
+    max-width: 60vw;
+    font-size: .6em;
     display: grid;
     margin-left: auto;
     margin-right: auto;

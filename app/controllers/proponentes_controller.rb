@@ -3,7 +3,7 @@ class ProponentesController < ApplicationController
 
   # GET /proponentes or /proponentes.json
   def index
-    @proponentes = Proponente.all
+    @proponentes = Proponente.page(params[:page])
   end
 
   # GET /proponentes/1 or /proponentes/1.json

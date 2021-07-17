@@ -5,7 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 nomes = ['Maria José da Silva', 'Maria da Silva', 'José da Silva', 'Madalena Vieira', 'João dos Anjos', 'Monica Pereira', 'Marina Joyce', 'Elis Maria', 'Roberto Ezequiel', 'Antonio Augusto dos Reis', 'Tiago Reis']
 cpfs = [1111111111, 1111111110,1111111112,1111111113,1111111114,1111111115,1111111116,1111111117,1111111118, 1111111119]
 data_nascimentos = ['2000-07-10', '2000-07-11', '1980-06-10','2001-12-30', '2010-11-20', '1995-03-01', '1989-02-15', '1984-08-04', '2000-10-12', '1991-11-26']

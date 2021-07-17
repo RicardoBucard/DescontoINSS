@@ -44,6 +44,26 @@ function formatLabels(){
             let newString = labelToChange.innerHTML.replace('inss', 'INSS')
             labelToChange.innerHTML = newString
         }
+        if(labelToChange.innerHTML.includes("Next")){
+            let newString = labelToChange.innerHTML.replace('Next', 'Próximo')
+            labelToChange.innerHTML = newString
+        }
+        if(labelToChange.innerHTML.includes("Last")){
+            let newString = labelToChange.innerHTML.replace('Last', 'Último')
+            labelToChange.innerHTML = newString
+        }
+        if(labelToChange.innerHTML.includes("Prev")){
+            let newString = labelToChange.innerHTML.replace('Prev', 'Anterior')
+            labelToChange.innerHTML = newString
+        }
+        if(labelToChange.innerHTML.includes("First")){
+            let newString = labelToChange.innerHTML.replace('First', 'Primeiro')
+            labelToChange.innerHTML = newString
+        }
+        if(labelToChange.innerHTML.includes("Create")){
+            let newString = labelToChange.innerHTML.replace('Create', 'Cria')
+            labelToChange.innerHTML = newString
+        }
     }
 }
 function formatErrorMessage(){
