@@ -1,91 +1,77 @@
-<%= form_for(@proponente, remote: true) do |form| %>
-  <% if @proponente.errors.any? %>
-    <div class="message is-danger">
-      <div class="message-header">
-        <p class="text-danger"><%= pluralize(@proponente.errors.count, "erro") %> impediram este proponente de ser criado:</p>
-      </div>
-    </div>
-    <div class="message-body">
-      <ul>
-      <% @proponente.errors.full_messages.each do |message| %>
-        <% message.gsub('can\'t be blank'){'não pode ficar em branco'} %>
-        <p><%= message %></p>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for(@proponente, local: true) do |form| %>
   <div class="container" id="form-container">
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :nome %>
-        <%= form.text_field :nome, class: "form-control text-center" %>
+        <%= form.text_field :nome, class: "form-control text-center", id:"nome-input" %>
       </div>
 
       <div class="col col-lg-6">
         <%= form.label :cpf %>
-        <%= form.text_field :cpf, class: "form-control text-center"  %>
+        <%= form.text_field :cpf, class: "form-control text-center", id: "cpf-input"  %>
       </div>
     </div>
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :data_nascimento %>
         <br>
-        <%= form.date_select :data_nascimento, :start_year => Date.current.year, :end_year => 1930, class: "form-control text-center"  %>
+        <%= form.date_select :data_nascimento, :start_year => Date.current.year, :end_year => 1930, class: "form-control text-center", id: "data-input" %>
       </div>
 
 
       <div class="col col-lg-6">
         <%= form.label :logradouro %>
-        <%= form.text_field :logradouro, class: "form-control text-center"  %>
+        <%= form.text_field :logradouro, class: "form-control text-center", id: "logradouro-input"  %>
       </div>
     </div>
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :bairro %>
-        <%= form.text_field :bairro, class: "form-control text-center"  %>
+        <%= form.text_field :bairro, class: "form-control text-center", id: "bairro-input"  %>
       </div>
 
       <div class="col col-lg-6">
         <%= form.label :numero %>
-        <%= form.number_field :numero, class: "form-control text-center", min: 0  %>
+        <%= form.number_field :numero, class: "form-control text-center", min: 0, id: "numero-input"  %>
       </div>
     </div>
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :cidade %>
-        <%= form.text_field :cidade, class: "form-control text-center"  %>
+        <%= form.text_field :cidade, class: "form-control text-center", id: "cidade-input"  %>
       </div>
 
       <div class="col col-lg-6">
         <%= form.label :estado %>
-        <%= form.text_field :estado, class: "form-control text-center"  %>
+        <%= form.text_field :estado, class: "form-control text-center", id: "estado-input"  %>
       </div>
     </div>
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :cep %>
-        <%= form.text_field :cep, class: "form-control text-center"  %>
+        <%= form.text_field :cep, class: "form-control text-center", id: "cep-input"  %>
       </div>
 
       <div class="col col-lg-6">
         <%= form.label :telefone_pessoal %>
-        <%= form.text_field :telefone_pessoal, class: "form-control text-center"  %>
+        <%= form.text_field :telefone_pessoal, class: "form-control text-center", id: "telefone-pessoal-input"  %>
       </div>
     </div>
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :telefone_referencia %>
-        <%= form.text_field :telefone_referencia, class: "form-control text-center"  %>
+        <%= form.text_field :telefone_referencia, class: "form-control text-center", id: "telefone-referencia-input" %>
       </div>
       <div class="col col-lg-6">
         <%= form.label :salario %>
-        <%= form.number_field :salario, min: 0, step: 0.01, class: "form-control text-center", onchange: true %>
+        <%= form.number_field :salario, min: 0, step: 0.01, class: "form-control text-center", id: "salario-input" %>
       </div>
     </div>
+
     <div class="actions align-items-center col col-lg-12">
-        <%= form.label :desconto_inss %>
-        <<%= form.number_field :desconto_inss, min: 0, step: 0.01, class: "form-control text-center"%>
-      <%= form.submit class:"btn btn-outline-primary" %>
+      <%# <%= form.label :desconto_inss %>
+      <%# <%= form.number_field :desconto_inss, min: 0, step: 0.01, class: "form-control text-center", id: "desconto-inss-input" %>
+      <%= form.submit class:"btn btn-outline-primary", id:"form-submit-button" %>
     </div>
   </div>
 <% end %>
@@ -96,37 +82,91 @@
   Number.prototype.round = function(places) {
     return +(Math.round(this + "e+" + places)  + "e-" + places);
   }
-  $(document).ready(function(){
-    $("#proponente_salario").on('change', function() {
-      let salario = $(this).val();
-      salario = parseFloat(salario);
-      if(salario <= 1045.0){
-        desconto = salario * 0.075
-      } else if(salario > 1045.0 && salario <= 2089.6){
-        primeiraFaixa = 1045.0 * 0.075
-        segundaFaixa = (salario - 1045.0) * 0.09
-        desconto = primeiraFaixa + segundaFaixa
-      } else if (salario > 2089.6 && salario <= 3134.4){
-        primeiraFaixa = 1045.0 * 0.075
-        segundaFaixa = (2089.6 - 1045.0) * 0.09
-        terceiraFaixa = (salario - 2089.6) * 0.12
-        desconto = primeiraFaixa + segundaFaixa + terceiraFaixa
-      } else if (salario > 3134.4 && salario <= 6101.06){
-        primeiraFaixa = 1045.0 * 0.075
-        segundaFaixa = (2089.6 - 1045.0) * 0.09
-        terceiraFaixa = (3134.4 - 2089.6) * 0.12
-        quartaFaixa = (salario - 3134.4) * 0.14
-        desconto = primeiraFaixa + segundaFaixa + terceiraFaixa + quartaFaixa
-      } else {
-        primeiraFaixa = 1045.0 * 0.075
-        segundaFaixa = (2089.6 - 1045.0) * 0.09
-        terceiraFaixa = (3134.4 - 2089.6) * 0.12
-        quartaFaixa = (6101.06 - 3134.4) * 0.14
-        desconto = primeiraFaixa + segundaFaixa + terceiraFaixa + quartaFaixa
-      }
-      desconto = desconto.round(2);
-      $("#proponente_desconto_inss").val(desconto);
-     });
-    });
+  // $(document).ready(function(){
+  //   $("#salario-input").on('change', function() {
+  //     let salario = $(this).val();
+  //     salario = parseFloat(salario);
+    //   if(salario <= 1045.0){
+    //     desconto = salario * 0.075
+    //   } else if(salario > 1045.0 && salario <= 2089.6){
+    //     primeiraFaixa = 1045.0 * 0.075
+    //     segundaFaixa = (salario - 1045.0) * 0.09
+    //     desconto = primeiraFaixa + segundaFaixa
+    //   } else if (salario > 2089.6 && salario <= 3134.4){
+    //     primeiraFaixa = 1045.0 * 0.075
+    //     segundaFaixa = (2089.6 - 1045.0) * 0.09
+    //     terceiraFaixa = (salario - 2089.6) * 0.12
+    //     desconto = primeiraFaixa + segundaFaixa + terceiraFaixa
+    //   } else if (salario > 3134.4 && salario <= 6101.06){
+    //     primeiraFaixa = 1045.0 * 0.075
+    //     segundaFaixa = (2089.6 - 1045.0) * 0.09
+    //     terceiraFaixa = (3134.4 - 2089.6) * 0.12
+    //     quartaFaixa = (salario - 3134.4) * 0.14
+    //     desconto = primeiraFaixa + segundaFaixa + terceiraFaixa + quartaFaixa
+    //   } else {
+    //     primeiraFaixa = 1045.0 * 0.075
+    //     segundaFaixa = (2089.6 - 1045.0) * 0.09
+    //     terceiraFaixa = (3134.4 - 2089.6) * 0.12
+    //     quartaFaixa = (6101.06 - 3134.4) * 0.14
+    //     desconto = primeiraFaixa + segundaFaixa + terceiraFaixa + quartaFaixa
+    //   }
+    //   desconto = desconto.round(2);
+    //   $("#desconto-inss-input").val(desconto);
+    //  });
+    // });
+    // $('form').submit(function(e){
+    //   if(! /^([0-9]+)((\.|,)([0-9]{1,2}))?$/.test($('#p_first').val())){
+    //     $('#number-only').addClass('error');
+    //     e.preventDefault();
+    //   }
+    // });
+  //  $('#form-submit-button').click(function(event) {
+  //     $.post("/proponentes/ajaxQueryPost",
+  //       {
+  //         nome: $('#nome-input').val(),
+  //         cpf: $('#cpf-input').val(),
+  //         data: $('#data-input').val(),
+  //         logradouro: $('#logradouro-input').val(),
+  //         bairro: $('#bairro-input').val(),
+  //         numero: $('#numero-input').val(),
+  //         cidade: $('#cidade-input').val(),
+  //         estado: $('#estado-input').val(),
+  //         cep: $('#cep-input').val(),
+  //         telefone_pessoal: $('#telefone-pessoal-input').val(),
+  //         telefone_referencia: $('#telefone-referencia-input').val(),
+  //         salario: $('#salario-input').val(),
+  //         desconto_inss: $('#desconto-inss-input').val(),
+  //       }
+  //     );
+  //  });
+      // $.ajax({
+      //   url: "/proponentes",
+      //   method: "post",
+      //   data: {
+      //     proponente: {
+      //       nome: $('#nome-input').val(),
+      //       cpf: $('#cpf-input').val(),
+      //       data: $('#data-input').val(),
+      //       logradouro: $('#logradouro-input').val(),
+      //       bairro: $('#bairro-input').val(),
+      //       numero: $('#numero-input').val(),
+      //       cidade: $('#cidade-input').val(),
+      //       estado: $('#estado-input').val(),
+      //       cep: $('#cep-input').val(),
+      //       telefone_pessoal: $('#telefone-pessoal-input').val(),
+      //       telefone_referencia: $('#telefone-referencia-input').val(),
+      //       salario: $('#salario-input').val(),
+      //       desconto_inss: $('#desconto-inss-input').val(),
+      //     }
+      //   },
+      //   success: function(response){
+      //     if(response){
+      //       console.log("a")
+      //     }
+      //   },
+      //   error: function(xhr){
+      //     console.log(xhr)
+      //   }
+      // });
 </script>
     

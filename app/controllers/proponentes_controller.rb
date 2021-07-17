@@ -1,5 +1,12 @@
 class ProponentesController < ApplicationController
+  include DescontoInssCalc
+  skip_before_action :verify_authenticity_token
   before_action :set_proponente, only: %i[ show edit update destroy ]
+  before_action :set_desconto, only: %i[ create update ]
+
+  def set_desconto
+    params[:proponente][:desconto_inss] = calcula_desconto(params[:proponente][:salario])
+  end
 
   # GET /proponentes or /proponentes.json
   def index
@@ -65,9 +72,8 @@ class ProponentesController < ApplicationController
     def set_proponente
       @proponente = Proponente.find(params[:id])
     end
-
     # Only allow a list of trusted parameters through.
     def proponente_params
-      params.require(:proponente).permit(:nome, :cpf, :data_nascimento, :logradouro, :numero, :bairro, :cidade, :estado, :cep, :telefone_pessoal, :telefone_referencia, :salario)
+      params.require(:proponente).permit(:nome, :cpf, :data_nascimento, :logradouro, :numero, :bairro, :cidade, :estado, :cep, :telefone_pessoal, :telefone_referencia, :salario, :desconto_inss, :id)
     end
 end
