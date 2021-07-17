@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require toastr
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -130,4 +131,7 @@ label{
     margin-left: auto;
     margin-right: auto;
     justify-content: space-around;
+}
+.title-card-text{
+    font-size: 2em;
 }
