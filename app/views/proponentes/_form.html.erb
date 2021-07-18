@@ -1,15 +1,30 @@
 <%= form_for(@proponente, local: true) do |form| %>
+  <% if @proponente.errors.any? %>
+    <div class="message is-danger">
+      <div class="message-header">
+        <p class="text-danger"><%= pluralize(@proponente.errors.count, "erro") %> impediram este proponente de ser criado:</p>
+      </div>
+    </div>
+    <div class="message-body">
+      <ul>
+      <% @proponente.errors.full_messages.each do |message| %>
+        <% message.gsub('can\'t be blank'){'não pode ficar em branco'} %>
+        <p><%= message %></p>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div class="container" id="form-container">
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :nome %>
-        <%= form.text_field :nome, class: "form-control text-center", id:"nome-input" %>
+        <%= form.text_field :nome, class: "form-control text-center", id:"nome-input", placeholder: 'Digite apenas letras' %>
       </div>
 
-      <div class="col col-lg-6">
-        <%= form.label :cpf %>
-        <%= form.text_field :cpf, class: "form-control text-center", id: "cpf" %>
-      </div>
+        <div class="col col-lg-6">
+          <%= form.label :cpf %>
+          <%= form.text_field :cpf, class: "form-control text-center", id: "cpf", placeholder: 'Digite apenas números' %>
+        </div>
     </div>
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
@@ -49,22 +64,22 @@
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :cep %>
-        <%= form.text_field :cep, class: "form-control text-center", id: "cep" %>
+        <%= form.text_field :cep, class: "form-control text-center", id: "cep", placeholder: 'Digite apenas números' %>
       </div>
 
       <div class="col col-lg-6">
         <%= form.label :telefone_pessoal %>
-        <%= form.text_field :telefone_pessoal, class: "form-control text-center", id: "telefone-pessoal"  %>
+        <%= form.text_field :telefone_pessoal, class: "form-control text-center", id: "telefone-pessoal", placeholder: 'Digite apenas números' %>
       </div>
     </div>
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :telefone_referencia %>
-        <%= form.text_field :telefone_referencia, class: "form-control text-center", id: "telefone-referencia" %>
+        <%= form.text_field :telefone_referencia, class: "form-control text-center", id: "telefone-referencia", placeholder: 'Digite apenas números'%>
       </div>
       <div class="col col-lg-6">
         <%= form.label :salario %>
-        <%= form.number_field :salario, min: 0, step: 0.01, class: "form-control text-center", id: "salario" %>
+        <%= form.number_field :salario, min: 0, step: 0.01, class: "form-control text-center", id: "salario", placeholder: '2345,99 ou 2345.99' %>
       </div>
     </div>
 
@@ -79,14 +94,22 @@
 <script>
   formatLabels();
   formatErrorMessage();
+  $(document).on('keypress', '#nome-input', function (event){
+    var regex = new RegExp("^[a-zA-Z ]+$");
+    var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+    if (!regex.test(key)) {
+        event.preventDefault();
+        return false;
+    }
+  });
+
   let desconto_span = $('.desconto_inss_span');
-  $('#salario-input').on('change', function() {
+  $('#salario').on('change', function() {
     let salario = $(this).val();
     salario = parseFloat(salario);
     let calcularDescontoRequest = new XMLHttpRequest();
     calcularDescontoRequest.open('GET',`/calc/desconto/${salario}`);
     calcularDescontoRequest.onload = () => {
-      console.log('salário mudou');
       let desconto_inss_calculado = JSON.parse(calcularDescontoRequest.responseText);
       desconto_span.innerHTML = desconto_inss_calculado;
     };

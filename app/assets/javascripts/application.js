@@ -46,26 +46,6 @@ function formatLabels(){
             let newString = labelToChange.innerHTML.replace('inss', 'INSS')
             labelToChange.innerHTML = newString
         }
-        if(labelToChange.innerHTML.includes("Next")){
-            let newString = labelToChange.innerHTML.replace('Next', 'Próximo')
-            labelToChange.innerHTML = newString
-        }
-        if(labelToChange.innerHTML.includes("Last")){
-            let newString = labelToChange.innerHTML.replace('Last', 'Último')
-            labelToChange.innerHTML = newString
-        }
-        if(labelToChange.innerHTML.includes("Prev")){
-            let newString = labelToChange.innerHTML.replace('Prev', 'Anterior')
-            labelToChange.innerHTML = newString
-        }
-        if(labelToChange.innerHTML.includes("First")){
-            let newString = labelToChange.innerHTML.replace('First', 'Primeiro')
-            labelToChange.innerHTML = newString
-        }
-        if(labelToChange.innerHTML.includes("Create")){
-            let newString = labelToChange.innerHTML.replace('Create', 'Cria')
-            labelToChange.innerHTML = newString
-        }
     }
 }
 function formatErrorMessage(){
@@ -74,6 +54,34 @@ function formatErrorMessage(){
     for (let message of errorMessage) {
         if(message.innerHTML.includes("can't be blank")){
             let newString = message.innerHTML.replace(/can't be blank/, 'não pode ficar em branco')
+            message.innerHTML = newString
+        }
+        if(message.innerHTML.includes("is too short")){
+            let newString = message.innerHTML.replace('is too short', 'está curto demais')
+            message.innerHTML = newString
+        }
+        if(message.innerHTML.includes("is too long")){
+            let newString = message.innerHTML.replace('is too longo', 'está longo demais')
+            message.innerHTML = newString
+        }
+        if(message.innerHTML.includes("minimum is")){
+            let newString = message.innerHTML.replace('minimum is', 'mínimo de')
+            message.innerHTML = newString
+        }
+        if(message.innerHTML.includes("maximum is")){
+            let newString = message.innerHTML.replace('maximum', 'máximo de')
+            message.innerHTML = newString
+        }
+        if(message.innerHTML.includes("characters")){
+            let newString = message.innerHTML.replace('characters', 'caracteres')
+            message.innerHTML = newString
+        }
+        if(message.innerHTML.includes("is the wrong length")){
+            let newString = message.innerHTML.replace('is the wrong length', 'não está com o tamanho adequado')
+            message.innerHTML = newString
+        }
+        if(message.innerHTML.includes("should be")){
+            let newString = message.innerHTML.replace('should be', 'deve ter')
             message.innerHTML = newString
         }
     }
