@@ -111,7 +111,6 @@
     calcularDescontoRequest.open('GET',`/calc/desconto/${salario}`);
     calcularDescontoRequest.onload = () => {
       let desconto_inss_calculado = JSON.parse(calcularDescontoRequest.responseText);
-      desconto_span.innerHTML = desconto_inss_calculado;
     };
     calcularDescontoRequest.send();
   });
