@@ -2,7 +2,7 @@
 
 one:
   nome: 'Maria José da Silva'
-  cpf: '111.111.111-11'
+  cpf: '789.432.689-61'
   data_nascimento: '2000-07-10'
   logradouro: 'Rua México'
   numero: 10
@@ -12,12 +12,12 @@ one:
   cep: '10000-000'
   telefone_pessoal: '(21)99678-9999' 
   telefone_referencia: '(21)99678-9990'
-  salario: 1045.0
+  salario: 1045.00
   desconto_inss: 78.37 
 
 two:
   nome: 'Maria da Silva'
-  cpf: '111.111.111-11'
+  cpf: '789.432.689-61'
   data_nascimento: '2000-08-15'
   logradouro: 'Rua João Afonso'
   numero: 49
@@ -27,7 +27,7 @@ two:
   cep: '10000-500'
   telefone_pessoal: '(21)99678-9999'
   telefone_referencia: '(21)99678-9990'
-  salario: 1045.0
+  salario: 1045.00
   desconto_inss: 172.38
 
 three:

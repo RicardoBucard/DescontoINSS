@@ -13,6 +13,5 @@ class ProponenteTest < ActiveSupport::TestCase
     proponente = Proponente.new(nome: @proponenteRepeatedCpf.nome, cpf: @proponenteRepeatedCpf.cpf, data_nascimento: @proponenteRepeatedCpf.data_nascimento, logradouro: @proponenteRepeatedCpf.logradouro, numero: @proponenteRepeatedCpf.numero, bairro: @proponenteRepeatedCpf.bairro, estado: @proponenteRepeatedCpf.estado, cidade: @proponenteRepeatedCpf.cidade, cep: @proponenteRepeatedCpf.cep, telefone_pessoal: @proponenteRepeatedCpf.telefone_pessoal, telefone_referencia: @proponenteRepeatedCpf.telefone_referencia, salario: @proponenteRepeatedCpf.salario, desconto_inss: @proponenteRepeatedCpf.desconto_inss)
     assert_not proponente.save
   end
-  test ""
 
 end
