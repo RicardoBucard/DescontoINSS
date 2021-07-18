@@ -8,14 +8,14 @@
 
       <div class="col col-lg-6">
         <%= form.label :cpf %>
-        <%= form.text_field :cpf, class: "form-control text-center", id: "cpf-input"  %>
+        <%= form.text_field :cpf, class: "form-control text-center", id: "cpf" %>
       </div>
     </div>
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :data_nascimento %>
         <br>
-        <%= form.date_select :data_nascimento, :start_year => Date.current.year, :end_year => 1930, class: "form-control text-center", id: "data-input" %>
+        <%= form.date_select :data_nascimento, :start_year => Date.current.year, :end_year => 1930, class: "form-control text-center" %>
       </div>
 
 
@@ -49,28 +49,28 @@
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :cep %>
-        <%= form.text_field :cep, class: "form-control text-center", id: "cep-input"  %>
+        <%= form.text_field :cep, class: "form-control text-center", id: "cep" %>
       </div>
 
       <div class="col col-lg-6">
         <%= form.label :telefone_pessoal %>
-        <%= form.text_field :telefone_pessoal, class: "form-control text-center", id: "telefone-pessoal-input"  %>
+        <%= form.text_field :telefone_pessoal, class: "form-control text-center", id: "telefone-pessoal"  %>
       </div>
     </div>
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :telefone_referencia %>
-        <%= form.text_field :telefone_referencia, class: "form-control text-center", id: "telefone-referencia-input" %>
+        <%= form.text_field :telefone_referencia, class: "form-control text-center", id: "telefone-referencia" %>
       </div>
       <div class="col col-lg-6">
         <%= form.label :salario %>
-        <%= form.number_field :salario, min: 0, step: 0.01, class: "form-control text-center", id: "salario-input" %>
+        <%= form.number_field :salario, min: 0, step: 0.01, class: "form-control text-center", id: "salario" %>
       </div>
     </div>
 
-    <div class="actions align-items-center col col-lg-12">
-      <%# <%= form.label :desconto_inss %>
-      <%# <%= form.number_field :desconto_inss, min: 0, step: 0.01, class: "form-control text-center", id: "desconto-inss-input" %>
+    <div class="actions">
+      <label>Desconto INSS</label>
+      <span class="desconto_inss_span" id="desconto"><%= @proponente.desconto_inss %></span>
       <%= form.submit class:"btn btn-outline-primary", id:"form-submit-button" %>
     </div>
   </div>
@@ -79,94 +79,32 @@
 <script>
   formatLabels();
   formatErrorMessage();
-  Number.prototype.round = function(places) {
-    return +(Math.round(this + "e+" + places)  + "e-" + places);
-  }
-  // $(document).ready(function(){
-  //   $("#salario-input").on('change', function() {
-  //     let salario = $(this).val();
-  //     salario = parseFloat(salario);
-    //   if(salario <= 1045.0){
-    //     desconto = salario * 0.075
-    //   } else if(salario > 1045.0 && salario <= 2089.6){
-    //     primeiraFaixa = 1045.0 * 0.075
-    //     segundaFaixa = (salario - 1045.0) * 0.09
-    //     desconto = primeiraFaixa + segundaFaixa
-    //   } else if (salario > 2089.6 && salario <= 3134.4){
-    //     primeiraFaixa = 1045.0 * 0.075
-    //     segundaFaixa = (2089.6 - 1045.0) * 0.09
-    //     terceiraFaixa = (salario - 2089.6) * 0.12
-    //     desconto = primeiraFaixa + segundaFaixa + terceiraFaixa
-    //   } else if (salario > 3134.4 && salario <= 6101.06){
-    //     primeiraFaixa = 1045.0 * 0.075
-    //     segundaFaixa = (2089.6 - 1045.0) * 0.09
-    //     terceiraFaixa = (3134.4 - 2089.6) * 0.12
-    //     quartaFaixa = (salario - 3134.4) * 0.14
-    //     desconto = primeiraFaixa + segundaFaixa + terceiraFaixa + quartaFaixa
-    //   } else {
-    //     primeiraFaixa = 1045.0 * 0.075
-    //     segundaFaixa = (2089.6 - 1045.0) * 0.09
-    //     terceiraFaixa = (3134.4 - 2089.6) * 0.12
-    //     quartaFaixa = (6101.06 - 3134.4) * 0.14
-    //     desconto = primeiraFaixa + segundaFaixa + terceiraFaixa + quartaFaixa
-    //   }
-    //   desconto = desconto.round(2);
-    //   $("#desconto-inss-input").val(desconto);
-    //  });
-    // });
-    // $('form').submit(function(e){
-    //   if(! /^([0-9]+)((\.|,)([0-9]{1,2}))?$/.test($('#p_first').val())){
-    //     $('#number-only').addClass('error');
-    //     e.preventDefault();
-    //   }
-    // });
-  //  $('#form-submit-button').click(function(event) {
-  //     $.post("/proponentes/ajaxQueryPost",
-  //       {
-  //         nome: $('#nome-input').val(),
-  //         cpf: $('#cpf-input').val(),
-  //         data: $('#data-input').val(),
-  //         logradouro: $('#logradouro-input').val(),
-  //         bairro: $('#bairro-input').val(),
-  //         numero: $('#numero-input').val(),
-  //         cidade: $('#cidade-input').val(),
-  //         estado: $('#estado-input').val(),
-  //         cep: $('#cep-input').val(),
-  //         telefone_pessoal: $('#telefone-pessoal-input').val(),
-  //         telefone_referencia: $('#telefone-referencia-input').val(),
-  //         salario: $('#salario-input').val(),
-  //         desconto_inss: $('#desconto-inss-input').val(),
-  //       }
-  //     );
-  //  });
-      // $.ajax({
-      //   url: "/proponentes",
-      //   method: "post",
-      //   data: {
-      //     proponente: {
-      //       nome: $('#nome-input').val(),
-      //       cpf: $('#cpf-input').val(),
-      //       data: $('#data-input').val(),
-      //       logradouro: $('#logradouro-input').val(),
-      //       bairro: $('#bairro-input').val(),
-      //       numero: $('#numero-input').val(),
-      //       cidade: $('#cidade-input').val(),
-      //       estado: $('#estado-input').val(),
-      //       cep: $('#cep-input').val(),
-      //       telefone_pessoal: $('#telefone-pessoal-input').val(),
-      //       telefone_referencia: $('#telefone-referencia-input').val(),
-      //       salario: $('#salario-input').val(),
-      //       desconto_inss: $('#desconto-inss-input').val(),
-      //     }
-      //   },
-      //   success: function(response){
-      //     if(response){
-      //       console.log("a")
-      //     }
-      //   },
-      //   error: function(xhr){
-      //     console.log(xhr)
-      //   }
-      // });
+  let desconto_span = $('.desconto_inss_span');
+  $('#salario-input').on('change', function() {
+    let salario = $(this).val();
+    salario = parseFloat(salario);
+    let calcularDescontoRequest = new XMLHttpRequest();
+    calcularDescontoRequest.open('GET',`/calc/desconto/${salario}`);
+    calcularDescontoRequest.onload = () => {
+      console.log('salário mudou');
+      let desconto_inss_calculado = JSON.parse(calcularDescontoRequest.responseText);
+      desconto_span.innerHTML = desconto_inss_calculado;
+    };
+    calcularDescontoRequest.send();
+  });
+
+  $(document).ready(function(){
+    var maskBehavior = function (val) {
+      return val.replace(/\D/g, '').length === 11 ? '(00)00000-0000' : '(00)0000-00009';
+    },
+    options = {onKeyPress: function(val, e, field, options) {
+      field.mask(maskBehavior.apply({}, arguments), options);
+      }
+    }
+    $('#telefone-pessoal').mask(maskBehavior, options);
+    $('#telefone-referencia').mask(maskBehavior, options);
+    $('#cep').mask('00000-000');
+    $('#cpf').mask('000.000.000-00', {reverse: true});
+  });
 </script>
     

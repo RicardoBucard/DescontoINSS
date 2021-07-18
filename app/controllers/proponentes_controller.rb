@@ -36,6 +36,7 @@ class ProponentesController < ApplicationController
         format.json { render :show, status: :created, location: @proponente }
         format.js { render :result  }
       else
+        flash[:error] = "Proponente não foi criado com sucesso"
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @proponente.errors, status: :unprocessable_entity }
         format.js { render :new, status: :unprocessable_entity }
@@ -51,6 +52,7 @@ class ProponentesController < ApplicationController
         format.json { render :show, status: :ok, location: @proponente }
         format.js {redirect_to @proponente, notice: "Proponente foi criado com sucesso" }
       else
+        flash[:error] = "Proponente não foi atualizado com sucesso"
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @proponente.errors, status: :unprocessable_entity }
         format.js { render :new, status: :unprocessable_entity }

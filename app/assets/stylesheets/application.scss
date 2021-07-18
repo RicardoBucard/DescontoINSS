@@ -118,8 +118,11 @@ label{
     margin-top: 1em;
 }
 .actions{
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin-top: .5em;
+    padding: 1em;
 }
 #proponente_desconto_inss{
     margin-bottom: 1em;
@@ -131,6 +134,9 @@ label{
     margin-left: auto;
     margin-right: auto;
     justify-content: space-around;
+}
+#form-submit-button{
+    margin-top: .5em;
 }
 .title-card-text{
     font-size: 2em;

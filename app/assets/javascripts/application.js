@@ -18,6 +18,7 @@
 //= require jquery_ujs 
 //= require bootstrap-sprockets 
 //= require toastr
+//= require jquery.mask
 function formatLabels(){
     let labels = document.getElementsByTagName('label');
     for (let labelToChange of labels) {

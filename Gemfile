@@ -35,6 +35,7 @@ gem "chronic"
 # gem 'capistrano-rails', group: :development
 gem 'kaminari', '~>1.0', '>=1.0.1'
 gem 'toastr-rails', '~> 1.0', '>= 1.0.3'
+gem 'jquery_mask_rails' # more details at http://bit.ly/jquery-mask-gem
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

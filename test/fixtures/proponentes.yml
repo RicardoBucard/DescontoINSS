@@ -2,30 +2,45 @@
 
 one:
   nome: 'Maria José da Silva'
-  cpf: 11111111111
+  cpf: '111.111.111-11'
   data_nascimento: '2000-07-10'
   logradouro: 'Rua México'
   numero: 10
   bairro: 'Centro'
   cidade: 'Rio de Janeiro'
   estado: 'Rio de Janeiro'
-  cep: 1000000
-  telefone_pessoal: 21999999999
-  telefone_referencia: 21999999998
+  cep: '10000-000'
+  telefone_pessoal: '(21)99678-9999' 
+  telefone_referencia: '(21)99678-9990'
   salario: 1045.0
   desconto_inss: 78.37 
 
 two:
   nome: 'Maria da Silva'
-  cpf:
+  cpf: '111.111.111-11'
   data_nascimento: '2000-08-15'
   logradouro: 'Rua João Afonso'
   numero: 49
   bairro: 'Humaitá'
   cidade: 'Rio de Janeiro'
   estado: 'Rio de Janeiro'
-  cep: 1000001
-  telefone_pessoal: 21999999997
-  telefone_referencia: 21999999996
+  cep: '10000-500'
+  telefone_pessoal: '(21)99678-9999'
+  telefone_referencia: '(21)99678-9990'
+  salario: 1045.0
+  desconto_inss: 172.38
+
+three:
+  nome: 'Maria da Silva'
+  cpf: 
+  data_nascimento: '2000-08-15'
+  logradouro: 'Rua João Afonso'
+  numero: 49
+  bairro: 'Humaitá'
+  cidade: 'Rio de Janeiro'
+  estado: 'Rio de Janeiro'
+  cep: '10000-500'
+  telefone_pessoal: (21)99678-9999'
+  telefone_referencia: (21)99678-9988'
   salario: 1045.0
   desconto_inss: 172.38
