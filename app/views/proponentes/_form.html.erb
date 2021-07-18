@@ -18,12 +18,12 @@
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :nome %>
-        <%= form.text_field :nome, class: "form-control text-center", id:"nome-input", placeholder: 'Digite apenas letras' %>
+        <%= form.text_field :nome, class: "form-control text-center", id:"nome-input", placeholder: 'Digite apenas letras', maxlength: 60, size: 60 %>
       </div>
 
         <div class="col col-lg-6">
           <%= form.label :cpf %>
-          <%= form.text_field :cpf, class: "form-control text-center", id: "cpf", placeholder: 'Digite apenas números' %>
+          <%= form.text_field :cpf, class: "form-control text-center", id: "cpf", placeholder: 'Digite apenas números', maxlength: 14, size: 14 %>
         </div>
     </div>
     <div class="row justify-content-md-center">
@@ -36,50 +36,50 @@
 
       <div class="col col-lg-6">
         <%= form.label :logradouro %>
-        <%= form.text_field :logradouro, class: "form-control text-center", id: "logradouro-input"  %>
+        <%= form.text_field :logradouro, class: "form-control text-center", id: "logradouro-input", placeholder: 'Rua do Rosário', maxlength: 80, size: 80 %>
       </div>
     </div>
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :bairro %>
-        <%= form.text_field :bairro, class: "form-control text-center", id: "bairro-input"  %>
+        <%= form.text_field :bairro, class: "form-control text-center", id: "bairro-input", placeholder: 'Centro', maxlength: 60, size: 60 %>
       </div>
 
       <div class="col col-lg-6">
         <%= form.label :numero %>
-        <%= form.number_field :numero, class: "form-control text-center", min: 0, id: "numero-input"  %>
+        <%= form.number_field :numero, class: "form-control text-center", min: 0, id: "numero-input", placeholder: '10' %>
       </div>
     </div>
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :cidade %>
-        <%= form.text_field :cidade, class: "form-control text-center", id: "cidade-input"  %>
+        <%= form.text_field :cidade, class: "form-control text-center", id: "cidade-input", placeholder: 'Rio de Janeiro', maxlength: 60, size: 60 %>
       </div>
 
       <div class="col col-lg-6">
         <%= form.label :estado %>
-        <%= form.text_field :estado, class: "form-control text-center", id: "estado-input"  %>
+        <%= form.text_field :estado, class: "form-control text-center", id: "estado-input", placeholder: 'Rio de Janeiro', maxlength: 40, size: 40  %>
       </div>
     </div>
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :cep %>
-        <%= form.text_field :cep, class: "form-control text-center", id: "cep", placeholder: 'Digite apenas números' %>
+        <%= form.text_field :cep, class: "form-control text-center", id: "cep", placeholder: 'Digite apenas números', maxlength: 9, size: 9 %>
       </div>
 
       <div class="col col-lg-6">
         <%= form.label :telefone_pessoal %>
-        <%= form.text_field :telefone_pessoal, class: "form-control text-center", id: "telefone-pessoal", placeholder: 'Digite apenas números' %>
+        <%= form.text_field :telefone_pessoal, class: "form-control text-center", id: "telefone-pessoal", placeholder: 'Digite apenas números', maxlength: 14, size: 14 %>
       </div>
     </div>
     <div class="row justify-content-md-center">
       <div class="col col-lg-6">
         <%= form.label :telefone_referencia %>
-        <%= form.text_field :telefone_referencia, class: "form-control text-center", id: "telefone-referencia", placeholder: 'Digite apenas números'%>
+        <%= form.text_field :telefone_referencia, class: "form-control text-center", id: "telefone-referencia", placeholder: 'Digite apenas números', maxlength: 14, size: 14%>
       </div>
       <div class="col col-lg-6">
         <%= form.label :salario %>
-        <%= form.number_field :salario, min: 0, step: 0.01, class: "form-control text-center", id: "salario", placeholder: '2345,99 ou 2345.99' %>
+        <%= form.number_field :salario, min: 0, step: 0.01, class: "form-control text-center", id: "salario", placeholder: '2345,99' %>
       </div>
     </div>
 
