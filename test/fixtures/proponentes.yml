@@ -29,18 +29,3 @@ two:
   telefone_referencia: '(21)99678-9990'
   salario: 1045.00
   desconto_inss: 172.38
-
-three:
-  nome: 'Maria da Silva'
-  cpf: 
-  data_nascimento: '2000-08-15'
-  logradouro: 'Rua João Afonso'
-  numero: 49
-  bairro: 'Humaitá'
-  cidade: 'Rio de Janeiro'
-  estado: 'Rio de Janeiro'
-  cep: '10000-500'
-  telefone_pessoal: (21)99678-9999'
-  telefone_referencia: (21)99678-9988'
-  salario: 1045.0
-  desconto_inss: 172.38
