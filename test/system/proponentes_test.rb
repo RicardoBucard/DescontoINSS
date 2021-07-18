@@ -30,7 +30,7 @@ class ProponentesTest < ApplicationSystemTestCase
     click_on "Create Proponente"
 
     assert_text "Proponente foi criado com sucesso"
-    click_on "Back"
+    click_on "Voltar"
   end
 
   test "updating a Proponente" do
@@ -53,7 +53,7 @@ class ProponentesTest < ApplicationSystemTestCase
     click_on "Update Proponente"
 
     assert_text "Proponente foi atualizado com sucesso"
-    click_on "Back"
+    click_on "Voltar"
   end
 
   test "destroying a Proponente" do
