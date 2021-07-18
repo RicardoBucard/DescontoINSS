@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 2021_07_11_065252) do
     t.string "telefone_referencia"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "salario"
-    t.float "desconto_inss"
+    t.decimal "salario"
+    t.decimal "desconto_inss"
   end
 
 end

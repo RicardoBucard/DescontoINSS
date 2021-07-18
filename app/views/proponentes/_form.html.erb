@@ -107,12 +107,14 @@
   $('#salario').on('change', function() {
     let salario = $(this).val();
     salario = parseFloat(salario);
+    salario = Math.round(salario)
     let calcularDescontoRequest = new XMLHttpRequest();
     calcularDescontoRequest.open('GET',`/calc/desconto/${salario}`);
+    calcularDescontoRequest.send();
     calcularDescontoRequest.onload = () => {
       let desconto_inss_calculado = JSON.parse(calcularDescontoRequest.responseText);
+      $("#desconto").html(`${desconto_inss_calculado.desconto_inss}`);
     };
-    calcularDescontoRequest.send();
   });
 
   $(document).ready(function(){
