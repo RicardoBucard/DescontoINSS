@@ -6,6 +6,19 @@ class ProponenteTest < ActiveSupport::TestCase
     assert proponente.save
   end
 
+  test "é um proponente válido e é atualizado" do
+    proponente = Proponente.create(nome: 'Maria José', cpf: '234.432.689-61', data_nascimento: '2000-07-10', logradouro: 'Rua México', numero: 10, bairro: 'Centro', estado: 'Rio de Janeiro', cidade: 'Rio de Janeiro', cep: '10000-000', telefone_pessoal: '(21)99678-9999', telefone_referencia: '(21)99678-9990', salario: 1045.0, desconto_inss: 78.37)
+    proponente.save
+    proponente.nome = 'José Maria'
+    assert proponente.save
+  end
+
+  test "é um proponente válido e é excluído" do
+    proponente = Proponente.create(nome: 'Maria José', cpf: '234.432.689-61', data_nascimento: '2000-07-10', logradouro: 'Rua México', numero: 10, bairro: 'Centro', estado: 'Rio de Janeiro', cidade: 'Rio de Janeiro', cep: '10000-000', telefone_pessoal: '(21)99678-9999', telefone_referencia: '(21)99678-9990', salario: 1045.0, desconto_inss: 78.37)
+    proponente.save
+    assert proponente.destroy
+  end
+
   test "proponente tem algum campo em branco não salva" do
     proponente = Proponente.create(nome: 'Maria José', data_nascimento: '2000-07-10', logradouro: 'Rua México', numero: 10, bairro: 'Centro', estado: 'Rio de Janeiro', cidade: 'Rio de Janeiro', cep: '10000-000', telefone_pessoal: '(21)99678-9999', telefone_referencia: '(21)99678-9990', salario: 1045.0, desconto_inss: 78.37)
     assert_not proponente.save
