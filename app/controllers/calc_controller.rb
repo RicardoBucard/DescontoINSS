@@ -1,7 +1,7 @@
 class CalcController < ApplicationController
     include DescontoInssCalc
 
-    #GET /calc/desconto/1000
+    #POST /calc/desconto/
     def desconto
         @resposta = {desconto_inss: calcula_desconto(params[:salario])} 
         respond_to do |format|

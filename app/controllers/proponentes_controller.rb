@@ -5,7 +5,7 @@ class ProponentesController < ApplicationController
   before_action :set_desconto, only: %i[ create update ]
 
   def set_desconto
-    params[:proponente][:desconto_inss] = calcula_desconto(params[:proponente][:salario])
+    params[:proponente][:desconto_inss] = calcula_desconto(body)
   end
 
   # GET /proponentes or /proponentes.json
