@@ -119,29 +119,9 @@
         $("#desconto").html(`${desconto}`);
       }
     });
-    // let calcularDescontoRequest = new XMLHttpRequest();
-    // calcularDescontoRequest.open('POST',`/calc/desconto/`);
-    // calcularDescontoRequest.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    // calcularDescontoRequest.send(JSON.stringify({ "salario" : `${salario}`}));
-    // calcularDescontoRequest.onload = () => {
-    //   console.log(calcularDescontoRequest.responseText);
-      // let desconto_inss_calculado = JSON.parse(calcularDescontoRequest.responseText);
-      // 
   });
-
-
   $(document).ready(function(){
-    var maskBehavior = function (val) {
-      return val.replace(/\D/g, '').length === 11 ? '(00)00000-0000' : '(00)0000-00009';
-    },
-    options = {onKeyPress: function(val, e, field, options) {
-      field.mask(maskBehavior.apply({}, arguments), options);
-      }
-    }
-    $('#telefone-pessoal').mask(maskBehavior, options);
-    $('#telefone-referencia').mask(maskBehavior, options);
-    $('#cep').mask('00000-000');
-    $('#cpf').mask('000.000.000-00', {reverse: true});
+    maskValues();
   });
 </script>
     
