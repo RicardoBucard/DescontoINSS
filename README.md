@@ -1,7 +1,7 @@
 # README
 
 
-Esta é uma aplicação REST de Proponentes feita em Ruby on Rails usando JQuery, AJAX e banco de dados PostgreSQL. Através desta aplicação, é possível popular o banco de dados com um seed, assim como criar, editar, exibir e deletar proponentes através de interface no navegador de sua escolha.
+Esta é uma aplicação REST de Proponentes feita em Ruby on Rails usando JQuery, AJAX e banco de dados PostgreSQL. Através desta aplicação, é possível popular o banco de dados com um seed, assim como criar, editar, exibir e deletar proponentes através de interface no navegador de sua escolha. O sistema cadastra um proponente, com seus dados pessoais e, ao ser informado o valor de salário, calcula o desconto do INSS através de requisição AJAX e exibe na tela antes de cadastrar.
 
 
 ### Instalação e primeiros passos
