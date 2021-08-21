@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :funcionarios
   resources :proponentes
   root to: "proponentes#index"
 
