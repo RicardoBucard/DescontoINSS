@@ -23,6 +23,9 @@
         <td><%= link_to 'Destroy', funcionario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <div class="text-center">
+      <%= paginate @funcionarios %>
+    </div>
   </tbody>
 </table>
 
