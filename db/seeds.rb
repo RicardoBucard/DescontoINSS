@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 nomes = ['Maria José da Silva', 'Maria da Silva', 'José da Silva', 'Madalena Vieira', 'João dos Anjos', 'Monica Pereira', 'Marina Joyce', 'Elis Maria', 'Roberto Ezequiel', 'Antonio Augusto dos Reis']
-cpfs = ['111.111.111-11', '111.111.111-10', '111.111.111-12','111.111.111-13','111.111.111-14','111.111.111-15','111.111.111-16','111.111.111-17','111.111.111-19', '111.111.111-10']
+cpfs = ['111.111.111-11', '111.111.111-10', '111.111.111-12','111.111.111-13','111.111.111-14','111.111.111-15','111.111.111-16','111.111.111-17','111.111.111-19', '111.111.111-18']
 data_nascimentos = ['2000-07-10', '2000-07-11', '1980-06-10','2001-12-30', '2010-11-20', '1995-03-01', '1989-02-15', '1984-08-04', '2000-10-12', '1991-11-26']
 logradouros = ['Rua México', 'Rua México', 'Rua México', 'Rua João Afonso', 'Rua Belford Roxo','Rua Belford Roxo', 'Rua do Lavradio', 'Rua Gomes Freire', 'Rua Uruguai', 'Rua do Passeio']
 numeros = [10, 50, 30, 350, 150, 49, 37, 26, 11, 19]
