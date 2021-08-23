@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Nome:</strong>
-  <%= @funcionario.nome %>
-</p>
-
-<p>
-  <strong>Cpf:</strong>
-  <%= @funcionario.cpf %>
-</p>
-
-<p>
-  <strong>Salario:</strong>
-  <%= @funcionario.salario %>
-</p>
-
-<%= link_to 'Edit', edit_funcionario_path(@funcionario) %> |
-<%= link_to 'Back', funcionarios_path %>
+<div class="card text-white text-center p-3">
+  <h1 class="title-card-text"><strong><%= @funcionario.nome %></strong></h1>
+</div>
+<div class="card-container">
+  <div class="card text-white text-center p-3">
+    <div class="card-body">
+      <h5 class="card-title">
+        <strong>CPF: </strong> <span class="card-text" ><%= @funcionario.cpf %></span>
+      </h5>
+    </div>
+  </div>
+  <div class="card text-white text-center p-3">
+    <div class="card-body">
+      <h5 class="card-title">
+        <strong>Salário: </strong> <span id="salario" class="card-text">R$ <%= @funcionario.salario %></span>
+      </h5>
+    </div>
+  </div>
+<div class="card-button-container">
+  <%= link_to 'Editar', edit_funcionario_path(@funcionario) %> |
+  <%= link_to 'Voltar', funcionarios_path %> |
+  <%= link_to 'Deletar', @funcionario, method: :delete, data: { confirm: 'Tem certeza que deseja deletar?' }%>
+</div>

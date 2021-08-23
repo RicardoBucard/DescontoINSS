@@ -1,0 +1,31 @@
+<%= form_with(model: funcionario, local: true) do |form| %>
+  <% if funcionario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(funcionario.errors.count, "error") %> impediram este funcionario de ser criado:</h2>
+
+      <ul>
+      <% funcionario.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <div class="container" id="form-container">
+        <div class="row justify-content-md-center">
+            <div class="field">
+                <div class="col col-lg-12">
+                    <%= form.label :salario %>
+                    <%= form.text_field :salario, class: "form-control text-center" %>
+                </div>
+            </div>
+
+            <div class="actions">
+                <%= form.submit class:"btn btn-outline-primary", id:"form-submit-button" %>
+            </div>
+        </div>
+    </div>
+<% end %>
+<script>
+  formatLabels();
+  formatErrorMessage();
+</script>
