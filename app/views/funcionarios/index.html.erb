@@ -1,34 +1,43 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Funcionarios</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Cpf</th>
-      <th>Salario</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<% if @funcionarios.blank? %>
+  <div class="alert alert-warning">
+    <strong>Não há funcionários salvos</strong>
+  </div>
+<% end %>
+<%= link_to 'Novo Funcionário', new_funcionario_path %>
+<div class="container">
+  <h1 class="page-title text-center mr-4"><strong>Funcionários</strong></h1>
     <% @funcionarios.each do |funcionario| %>
-      <tr>
-        <td><%= funcionario.nome %></td>
-        <td><%= funcionario.cpf %></td>
-        <td><%= funcionario.salario %></td>
-        <td><%= link_to 'Show', funcionario %></td>
-        <td><%= link_to 'Edit', edit_funcionario_path(funcionario) %></td>
-        <td><%= link_to 'Destroy', funcionario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="card-container">
+        <div class="card text-white text-center p-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              <strong>Nome: </strong> <span class="card-text" ><%= funcionario.nome %></span>
+            </h5>
+          </div>
+        </div>
+        <div class="card text-white text-center p-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              <strong>CPF: </strong> <span class="card-text" ><%= funcionario.cpf %></span>
+            </h5>
+          </div>
+        </div>
+        <div class="card text-white text-center p-3">
+          <div class="card-body">
+            <h5 class="card-title">
+              <strong>Salário: </strong> <span class="card-text" >R$ <%= funcionario.salario %></span>
+            </h5>
+          </div>
+        </div>
+        <div class="card-button-container">
+          <%= link_to 'Detalhes', funcionario %> |
+          <%= link_to 'Editar', edit_funcionario_path(funcionario) %> |
+          <%= link_to 'Deletar', funcionario, method: :delete, data: { confirm: 'Tem certeza que deseja deletar?' } %>
+        </div>
+      </div>
     <% end %>
+    
     <div class="text-center">
       <%= paginate @funcionarios %>
     </div>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Funcionario', new_funcionario_path %>
+  </div>

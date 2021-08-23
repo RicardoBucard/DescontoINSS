@@ -1,4 +1,5 @@
 class FuncionariosController < ApplicationController
+  layout 'funcionarios'
   before_action :set_funcionario, only: %i[ show edit update destroy ]
 
   PRIMEIRA_FAIXA_SALARIAL = 1045.0
