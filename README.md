@@ -12,18 +12,12 @@ Após a instalação do PostgreSQL, é necessário configurar superusário e tam
 
 Então clone o repositório e execute os seguintes comandos:
     - `bundle install` para instalar dependências
-    - `rails db:migrate` para fazer as migrações do banco de dados
+    - `rails dev:setup` para criar e popular o banco de dados
     - `rails s` para inicializar o servidor local
 
 Após o servidor subir com sucesso, acesse `http://localhost:3000/` no seu navegador para utilizar o sistema.
 
 ### Como utilizar a aplicação
-
-Para popular o banco de dados, rode o código abaixo no terminal dentro da pasta raiz do projeto.
-
-```
-rails db:seed
-```
 
 Para rodar teste unitário do model Proponente, execute o código abaixo.
 
