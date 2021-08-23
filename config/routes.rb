@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :admins
   resources :funcionarios do 
     collection do
       get 'relatorio_salarial'
