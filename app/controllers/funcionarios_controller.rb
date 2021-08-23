@@ -1,6 +1,11 @@
 class FuncionariosController < ApplicationController
   before_action :set_funcionario, only: %i[ show edit update destroy ]
 
+  PRIMEIRA_FAIXA_SALARIAL = 1045.0
+  SEGUNDA_FAIXA_SALARIAL = 2089.60
+  TERCEIRA_FAIXA_SALARIAL = 3134.40
+  QUARTA_FAIXA_SALARIAL = 6101.06   
+
   # GET /funcionarios or /funcionarios.json
   def index
     @funcionarios = Funcionario.page(params[:page])
@@ -54,6 +59,14 @@ class FuncionariosController < ApplicationController
       format.html { redirect_to funcionarios_url, notice: "Funcionario was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def relatorio_salarial
+    count_primeira_faixa = FuncionariosRelatorio.faixas_salarial(PRIMEIRA_FAIXA_SALARIAL)
+    count_segunda_faixa = FuncionariosRelatorio.faixas_salarial(PRIMEIRA_FAIXA_SALARIAL, SEGUNDA_FAIXA_SALARIAL)
+    count_terceira_faixa = FuncionariosRelatorio.faixas_salarial(SEGUNDA_FAIXA_SALARIAL, TERCEIRA_FAIXA_SALARIAL)
+    count_quarta_faixa = FuncionariosRelatorio.faixas_salarial(TERCEIRA_FAIXA_SALARIAL, QUARTA_FAIXA_SALARIAL)
+    @count_faixas_salariais = { primeira_faixa: count_primeira_faixa, segunda_faixa: count_segunda_faixa, terceira_faixa: count_terceira_faixa, quarta_faixa: count_quarta_faixa }
   end
 
   private
